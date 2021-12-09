@@ -9,6 +9,7 @@
  - Eclipse IDE 2019-09
  - Java version : jdk 1.8.0_301
  - WAS(tomcat) version : apache-tomcat-9.0.56
+ - Servlet version : 4.0
 
 ### 실행방법
  - /hssuh 로 되어있는 tomcat path를 /raindrop 으로 변경
