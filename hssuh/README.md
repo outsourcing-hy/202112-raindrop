@@ -15,3 +15,8 @@
  - /hssuh 로 되어있는 tomcat path를 /raindrop 으로 변경
  - 서버 실행 후 다음 URL로 접속
  - http://localhost:8080/raindrop/test/hello.html
+ 
+## 모듈 종류
+
+### 슬라이드 모달 팝업
+ - fadeIn 등의 함수는 jQuery 3.2.1 이하 버전에서만 사용가능
