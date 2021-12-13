@@ -1,0 +1,17 @@
+<style>
+    .showstep1{
+        max-height: 300px;
+        overflow: hidden;
+    }
+    .showstep2{
+        max-height: 600px;
+        overflow: hidden;
+    }
+    .content{
+        height: 1000px;
+        background-color: #ccc;
+    }
+    .hide{
+        display: none;
+    }
+</style>
