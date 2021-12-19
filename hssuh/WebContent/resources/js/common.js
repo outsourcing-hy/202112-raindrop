@@ -1,3 +1,13 @@
+window.onload = function () {
+  document.querySelector(".background").className = "background show";
+}
+
+function close () { 
+  document.querySelector(".background").className = "background";
+}
+
+document.querySelector("#close").addEventListener('click', close);
+
 document.addEventListener('DOMContentLoaded', function(){ //DOM 생성 후 이벤트 리스너 등록
     //더보기 버튼 이벤트 리스너
     document.querySelector('.btn_open').addEventListener('click', function(e){
