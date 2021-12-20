@@ -103,3 +103,8 @@
 	width:100%;
 	border-radius:35px;
 }
+
+.pop-btn:hover {
+  	color: white;
+	background : black;
+}
