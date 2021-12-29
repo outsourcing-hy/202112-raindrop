@@ -33,10 +33,10 @@ document.querySelector('.btn_close').addEventListener('click', function(e){
 });
 
 //컨텐츠 로딩 완료 후 높이 기준으로 클래스 재처리
-window.addEventListener('load', function(){
-    let contentHeight = document.querySelector('.detailinfo > .content').offsetHeight; //컨텐츠 높이 얻기
-    if(contentHeight <= 500){
-        document.querySelector('.detailinfo').classList.remove('show'); // 초기값보다 작으면 전체 컨텐츠 표시
-        document.querySelector('.btn_open').classList.add('hide'); // 버튼 감춤
-    }
-});
+//window.addEventListener('load', function(){
+//    let contentHeight = document.querySelector('.detailinfo > .content').offsetHeight; //컨텐츠 높이 얻기
+//    if(contentHeight <= 500){
+//        document.querySelector('.detailinfo').classList.remove('show'); // 초기값보다 작으면 전체 컨텐츠 표시
+//        document.querySelector('.btn_open').classList.add('hide'); // 버튼 감춤
+//    }
+//});
