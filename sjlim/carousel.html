@@ -4,10 +4,13 @@
         <meta charset="utf-8" />
         <title>Image Carousel demo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Link Swiper's CSS -->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <!-- demo styles -->
         <style>
+            .ds-none { display: none; }
+
             .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
             .swiper { width: 100%; height: 100%; }
             .swiper-slide { text-align: center; 
@@ -31,20 +34,52 @@
                 box-pack:center;
                 box-align:center;
             }
-            .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+            .swiper-slide img { display: block; width: 100%; object-fit: cover; }
+
+            /* Menu css */
+            ul { margin: auto; padding: auto; display: table; width:100%; display: inline-block; }
+            li { display: inline-block; text-align: center; margin: 2%; }
+            a { text-decoration: none; color: black; }
+            li a img { width:80px; height: 80px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
+            li a.active img { border: 2px solid black; padding: 5%; }
+            li a p { margin: 0; vertical-align: middle; position: relative; }
+            li a.active p { font-weight: bold; }
         </style>
     </head>
 
     <body>
         <div class="swiper-area">
             <!-- Swiper -->
-            <div class="swiper imgSwiper">
-                <div class="swiper-wrapper" id="ct-1">
+            <div class="swiper imgSwiper" id="ct-1">
+                <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="img/ring-1.jpg" alt="Test Image 01" /></div>
                     <div class="swiper-slide"><img src="img/ring-2.jpg" alt="Test Image 02" /></div>
                     <div class="swiper-slide"><img src="img/ring-3.jpg" alt="Test Image 03" /></div>
                 </div>
                 <div class="swiper-scrollbar"></div>
+            </div>
+            <div class="swiper imgSwiper ds-none" id="ct-2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/necklace-1.jpg" alt="Test Image 01" /></div>
+                    <div class="swiper-slide"><img src="img/necklace-2.jpg" alt="Test Image 02" /></div>
+                    <div class="swiper-slide"><img src="img/necklace-3.jpg" alt="Test Image 03" /></div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+            <div class="swiper imgSwiper ds-none" id="ct-3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/earing-1.jpg" alt="Test Image 01" /></div>
+                    <div class="swiper-slide"><img src="img/earing-2.jpg" alt="Test Image 02" /></div>
+                    <div class="swiper-slide"><img src="img/earing-3.jpg" alt="Test Image 03" /></div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+            <div>
+                <ul id="category">
+                    <li><a href="#" target="_self" onclick="clickCategory(this);" category="ct-1" class="active" ><img src="img/ring-1.jpg" alt="test image category 01" /><p>Ring</p></a></li>
+                    <li><a href="#" target="_self" onclick="clickCategory(this);" category="ct-2"><img src="img/necklace-1.jpg" alt="test image category 02" /><p>Necklace</p></a></li>
+                    <li><a href="#" target="_self" onclick="clickCategory(this);" category="ct-3"><img src="img/earing-1.jpg" alt="test image category 01" /><p>Earing</p></a></li>
+                </ul>
             </div>
         </div>
 
@@ -53,19 +88,29 @@
 
         <!-- Initialize Swiper -->
         <script>
-        var swiper = new Swiper(".imgSwiper", {
-            // 슬라이드 효과
-            effect: "fade",
-            // 자동 슬라이드
-            // autoplay: {
-            //     delay: 3000,
-            //     disableOnInteraction: false
-            // },
-            scrollbar: {
-                el: ".swiper-scrollbar",
-                hide: true,
-             },
+             var swiper = new Swiper(".imgSwiper", {
+                // 슬라이드 효과
+                effect: "fade",
+                // 자동 슬라이드
+                // autoplay: {
+                //     delay: 3000,
+                //     disableOnInteraction: false
+                // },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: true,
+                }
             });
+
+            function clickCategory(target) {
+                $(".swiper").addClass("ds-none");
+
+                var category = $(target).attr("category");
+                $("#"+category).removeClass("ds-none");
+
+                $("#category a").removeClass("active");
+                $(target).addClass("active");
+            }
       </script>
     </body>
 </html>
