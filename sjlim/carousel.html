@@ -15,7 +15,7 @@
             /* base swiper css */
             .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
             .swiper { width: 100%; height: 100%; }
-            .swiper-slide { display: block; width: 100%; object-fit: cover; color: #fff;
+            .swiper-slide { display: block; width: 100%; color: #fff;
                 /* Internet Explorer 10 */
                 /* display:-ms-flexbox; */
                 -ms-flex-pack:center;
@@ -39,14 +39,15 @@
                 /* Center and scale the image nicely */
                 background-position: center;
                 background-repeat: no-repeat;
-                background-size: 100% 100%;
+                background-size: cover;
             }
             /* .swiper-slide img { display: block; width: 100%; object-fit: cover; } */
 
             /* swiper parallax-bg css */
             .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
 
-	        .swiper-slide .description { padding-top: 30%; padding-left: 2%; display: table-cell; }
+            .swiper-slide img { width: 100%; height: 50%;}
+            .swiper-slide .description { position: absolute; top: 20%; left: 2%; }
             .swiper-slide .title { font-size: 41px; font-weight: 300; }
             .swiper-slide .subtitle { font-size: 21px; }
             .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
@@ -74,7 +75,8 @@
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url(img/ring-1.jpg);">
+                    <div class="swiper-slide">
+                        <img src="img/ring-1.jpg" alt="earing image" />
                         <div class="description">
                             <div class="title" data-swiper-parallax="-300">Slide 1</div>
                             <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
@@ -82,12 +84,17 @@
                                 <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                                 dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                laoreet justo vitae porttitor porttitor. 
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/ring-2.jpg);">
+                    <div class="swiper-slide">
+                        <img src="img/ring-2.jpg" alt="earing image" />
                         <div class="description">
                             <div class="title" data-swiper-parallax="-300">Slide 2</div>
                             <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
@@ -104,9 +111,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/ring-3.jpg);">
+                    <div class="swiper-slide">
+                        <img src="img/ring-3.jpg" alt="earing image" />
                         <div class="description">
-                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
                             <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
                             <div class="text" data-swiper-parallax="-100">
                                 <p>
@@ -128,49 +136,58 @@
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url(img/necklace-1.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 1</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/earing-1.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 1</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/necklace-2.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 2</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/earing-2.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/necklace-3.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 3</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/earing-3.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -180,49 +197,58 @@
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url(img/earing-1.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 1</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/necklace-1.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 1</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/earing-2.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 2</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/necklace-2.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url(img/earing-3.jpg);">
-                        <div class="title" data-swiper-parallax="-300">Slide 3</div>
-                        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                        <div class="text" data-swiper-parallax="-100">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                            </p>
+                    <div class="swiper-slide">
+                        <img src="img/necklace-3.jpg" alt="earing image" />
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
