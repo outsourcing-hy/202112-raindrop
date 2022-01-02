@@ -39,20 +39,20 @@
                 /* Center and scale the image nicely */
                 background-position: center;
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: 100% 100%;
             }
             /* .swiper-slide img { display: block; width: 100%; object-fit: cover; } */
 
             /* swiper parallax-bg css */
             .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
 
-	.swiper-slide .description { padding-top: 50%; padding-left: 2%; }
+	        .swiper-slide .description { padding-top: 30%; padding-left: 2%; display: table-cell; }
             .swiper-slide .title { font-size: 41px; font-weight: 300; }
             .swiper-slide .subtitle { font-size: 21px; }
             .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
 
             /* Menu css */
-            ul { margin: auto; padding: auto; display: table; width:100%; display: inline-block; }
+            ul { margin: auto; padding: 0; display: table; width:100%; display: inline-block; text-align: center; }
             li { display: inline-block; text-align: center; margin: 2%; }
             a { text-decoration: none; color: black; }
             li a img { width:80px; height: 80px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
@@ -60,10 +60,10 @@
             li a p { margin: 0; vertical-align: middle; position: relative; }
             li a.active p { font-weight: bold; }
 
-	/* Desktop Browser width */
-	@media only screen and (min-width : 1280px) {
-		/* .swiper-slide { max-width: 100%; height : auto; } */
-	}
+            /* Desktop Browser width */
+            @media only screen and (min-width : 1280px) {
+                /* .swiper-slide { max-width: 100%; height : auto; } */
+            }
         </style>
     </head>
 
@@ -72,52 +72,56 @@
             <!-- Swiper -->
             <div class="swiper imgSwiper" id="ct-1" 
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
-            <div class="parallax-bg" data-swiper-parallax="-23%"></div>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url(img/ring-1.jpg);">
-	        <div class="description">
-		<div class="title" data-swiper-parallax="-300">Slide 1</div>
-		<div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-		<div class="text" data-swiper-parallax="-100">
-			<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-			dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-			laoreet justo vitae porttitor porttitor. 
-			</p>
-		</div>
-	        </div>
-                </div>
-                <div class="swiper-slide" style="background-image: url(img/ring-2.jpg);">
-                    <div class="title" data-swiper-parallax="-300">Slide 2</div>
-                    <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                    <div class="text" data-swiper-parallax="-100">
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                        </p>
+                <div class="parallax-bg" data-swiper-parallax="-23%"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url(img/ring-1.jpg);">
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 1</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(img/ring-2.jpg);">
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url(img/ring-3.jpg);">
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="background-image: url(img/ring-3.jpg);">
-                    <div class="title" data-swiper-parallax="-300">Slide 3</div>
-                    <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-                    <div class="text" data-swiper-parallax="-100">
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-                        </p>
-                    </div>
-                </div>
-            </div>
                 <div class="swiper-scrollbar"></div>
             </div>
             <div class="swiper imgSwiper ds-none" id="ct-2"
