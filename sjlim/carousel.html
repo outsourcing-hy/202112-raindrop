@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Link Swiper's CSS -->
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="css/swiper.css" />
+        <link rel="stylesheet" href="css/swiper.7.4.1.css" />
         <!-- demo styles -->
         <style>
             /* common css */
@@ -72,19 +71,19 @@
     <body>
         <div class="swiper-area">
             <!-- Swiper -->
-            <div class="swiper imgSwiper" id="ct-1" 
+            <div class="swiper categorySwiper" id="ct-1" 
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="img/ring-1.jpg" alt="earing image" />
                         <div class="description">
-                            <div class="title" data-swiper-parallax="-300">Slide 1</div>
-                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="title" data-swiper-parallax="-300">제목 예시</div>
+                            <div class="subtitle" data-swiper-parallax="-200"></div>
                             <div class="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec.
+                                상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
                                 </p>
                             </div>
                         </div>
@@ -118,7 +117,7 @@
                 </div>
                 <div class="swiper-scrollbar"></div>
             </div>
-            <div class="swiper imgSwiper ds-none" id="ct-2"
+            <div class="swiper categorySwiper ds-none" id="ct-2"
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
@@ -179,7 +178,7 @@
                 </div>
                 <div class="swiper-scrollbar"></div>
             </div>
-            <div class="swiper imgSwiper ds-none" id="ct-3"
+            <div class="swiper categorySwiper ds-none" id="ct-3"
             style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
                 <div class="parallax-bg" data-swiper-parallax="-23%"></div>
                 <div class="swiper-wrapper">
@@ -250,21 +249,21 @@
         </div>
 
         <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="js/swiper.min.7.4.1.js"></script>
 
         <!-- Initialize Swiper -->
         <script>
-             var swiper = new Swiper(".imgSwiper", {
+             var swiper = new Swiper(".categorySwiper", {
                 // parallax
                 speed: 600,
                 parallax: true,
                 // 슬라이드 효과
                 effect: "fade",
-                // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 )
-                // autoplay: {
-                //     delay: 3000,
-                //     disableOnInteraction: false
-                // },
+                // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
                 scrollbar: {
                     el: ".swiper-scrollbar",
                     hide: true,
