@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <title>Insert title here</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
 .background {
 	position: fixed;
@@ -85,103 +83,132 @@
 	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.42);
 	background-color: black;
 }
-</style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script>
-  		$(function(){
-			$('.slider').slick({
-				slide: 'a',		//슬라이드 되어야 할 태그 ex) div, li 
-				infinite : true, 	//무한 반복 옵션	 
-				slidesToShow : 1,		// 한 화면에 보여질 컨텐츠 개수
-				slidesToScroll : 1,		//스크롤 한번에 움직일 컨텐츠 개수
-				speed : 100,	 // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-				arrows : true, 		// 옆으로 이동하는 화살표 표시 여부
-				dots : true, 		// 스크롤바 아래 점으로 페이지네이션 여부
-				autoplay : true,			// 자동 스크롤 사용 여부
-				autoplaySpeed : 3000, 		// 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
-				pauseOnHover : true,		// 슬라이드 이동	시 마우스 호버하면 슬라이더 멈추게 설정
-				vertical : false,		// 세로 방향 슬라이드 옵션
-				dotsClass : "slick-dots", 	//아래 나오는 페이지네이션(점) css class 지정
-				draggable : true, 	//드래그 가능 여부 
-			});
-  		})
-	</script>
-</head>
-<body>
-	<div class="detailinfo show">
-		<div class="content">
-			<img data-result="success" data-name="animal-g0b5891afa_1920.jpg"
-				data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
-				style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
-				src="resources/img/animal-g0b5891afa_1920.jpg"> <br> <img
-				data-result="success" data-name="christmas-g58d923c6a_1920.jpg"
-				data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
-				style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
-				src="resources/img/christmas-g58d923c6a_1920.jpg"> <br> <img
-				data-result="success" data-name="church-gd9e345dc0_1920.jpg"
-				data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
-				style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
-				src="resources/img/church-gd9e345dc0_1920.jpg"> <br> <img
-				data-result="success" data-name="fairy-lights-g5566ef2d6_1920.jpg"
-				data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
-				style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
-				src="resources/img/fairy-lights-g5566ef2d6_1920.jpg"> <br>
-			<img data-result="success" data-name="man-g284d594ee_1920.jpg"
-				data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
-				style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
-				src="resources/img/man-g284d594ee_1920.jpg">
-		</div>
-	</div>
-	<div class="background">
-		<div class="window">
-			<div class="popup" id="popup">
-				<div class="popup-head">
-					<hr />
-				</div>
-				<div class="popup-body">
-					<div class="body-content">
-						<div class="body-img">
-							<div class="slider">
-								<a href="https://www.google.com" target="_blank"> <img
-									src="resources/img/animal-g0b5891afa_1920.jpg" alt="img">
-								</a>
-								<div class="body-titlebox">
-									<h1>제목 예시입니다</h1>
-								</div>
-								<div class="body-contentbox">
-									<p>본문 예시입니다. 실제로는 다른 내용이 작성됩니다.</p>
-									<p>본문은 총 1줄에서 2줄 까지 작성됩니다.</p>
-								</div>
-								<a href="https://www.naver.com" target="_blank"> <img
-									src="resources/img/christmas-g58d923c6a_1920.jpg" alt="img">
-								</a> <a href="https://www.daum.com" target="_blank"> <img
-									src="resources/img/church-gd9e345dc0_1920.jpg" alt="img">
-								</a>
-							</div>
-						</div>
 
+</style>
+</head>
+    <body>
+    	<div class="detailinfo show">
+			<div class="content">
+				<img data-result="success" data-name="animal-g0b5891afa_1920.jpg"
+					data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
+					style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
+					src="resources/img/animal-g0b5891afa_1920.jpg"> <br> <img
+					data-result="success" data-name="christmas-g58d923c6a_1920.jpg"
+					data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
+					style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
+					src="resources/img/christmas-g58d923c6a_1920.jpg"> <br> <img
+					data-result="success" data-name="church-gd9e345dc0_1920.jpg"
+					data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
+					style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
+					src="resources/img/church-gd9e345dc0_1920.jpg"> <br> <img
+					data-result="success" data-name="fairy-lights-g5566ef2d6_1920.jpg"
+					data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
+					style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
+					src="resources/img/fairy-lights-g5566ef2d6_1920.jpg"> <br>
+				<img data-result="success" data-name="man-g284d594ee_1920.jpg"
+					data-size="1500px/5220px" data-filesize="2,28 MB" data-error=""
+					style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center;"
+					src="resources/img/man-g284d594ee_1920.jpg">
+			</div>
+		</div>
+		<div class="background">
+			<div class="window">
+				<div class="popup" id="popup">
+					<div class="popup-head">
+						<hr />
 					</div>
+					<div class="popup-body">
+						<div class="swiper-area">
+				            <!-- Swiper -->
+				            <div class="swiper categorySwiper" id="ct-1" 
+				            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
+				                <div class="parallax-bg" data-swiper-parallax="-23%"></div>
+				                <div class="swiper-wrapper">
+				                    <div class="swiper-slide">
+				                        <img src="resources/img/animal-g0b5891afa_1920.jpg" />
+				                        <div class="description">
+				                            <div class="title" data-swiper-parallax="-300">제목 예시</div>
+				                            <div class="subtitle" data-swiper-parallax="-200"></div>
+				                            <div class="text" data-swiper-parallax="-100">
+				                                <p>
+				                               		 상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
+				                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
+				                                </p>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="swiper-slide">
+				                        <img src="resources/img/christmas-g58d923c6a_1920.jpg" />
+				                        <div class="description">
+				                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
+				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+				                            <div class="text" data-swiper-parallax="-100">
+				                                <p>
+				                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+				                                dictum mattis velit, sit amet faucibus felis iaculis nec.
+				                                </p>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="swiper-slide">
+				                        <img src="resources/img/church-gd9e345dc0_1920.jpg"  />
+				                        <div class="description">
+				                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
+				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+				                            <div class="text" data-swiper-parallax="-100">
+				                                <p>
+				                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+				                                dictum mattis velit, sit amet faucibus felis iaculis nec. 
+				                                </p>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="swiper-scrollbar"></div>
+				            </div>
+				         
+				        </div>
 				</div>
 				<div class="popup-foot">
 					<span class="pop-btn confirm" id="confirm">지금 보러 갈게요</span>
 					<span class="pop-btn close" id="close">괜찮아요. 다음에 볼게요.</span>
 				</div>
-			</div>
+			</div>	
 		</div>
 	</div>
-	<script type="text/javascript">
-		window.onload = function () {
-		  document.querySelector(".background").className = "background show";
-		}
+        <!-- Swiper JS -->
+        <script src="resources/js/swiper.min.4.1.0.js"></script>
 
-		function close () { 
-		  document.querySelector(".background").className = "background";
-		}
+        <!-- Initialize Swiper -->
+        <script>
+        
+        	window.onload = function () {
+     		  document.querySelector(".background").className = "background show";
+     		}
 
-		document.querySelector("#close").addEventListener('click', close);
-	</script>
+     		function close () { 
+     		  document.querySelector(".background").className = "background";
+     		}
+
+     		document.querySelector("#close").addEventListener('click', close);
+        
+            var swiper = new Swiper(".categorySwiper", {
+                // parallax
+                speed: 600,
+                parallax: true,
+                // 슬라이드 효과
+                effect: "fade",
+                // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: true,
+                }
+            });
+            
+      </script>
 </body>
 </html>
