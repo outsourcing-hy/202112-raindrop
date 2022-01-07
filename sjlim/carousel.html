@@ -14,8 +14,8 @@
 
             /* base swiper css */
             .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
-            .swiper { width: 100%; height: 100%; }
-            .swiper-slide { display: block; width: 100%; color: #fff;
+            .swiper-area .swiper { width: 100%; height: 100%; }
+            .swiper-area .swiper-slide { display: block; width: 100%; color: #fff;
                 /* Internet Explorer 10 */
                 /* display:-ms-flexbox; */
                 -ms-flex-pack:center;
@@ -41,16 +41,15 @@
                 background-repeat: no-repeat;
                 background-size: cover;
             }
-            /* .swiper-slide img { display: block; width: 100%; object-fit: cover; } */
 
             /* swiper parallax-bg css */
-            .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+            .swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
 
-            .swiper-slide img { width: 100%; height: 50%;}
-            .swiper-slide .description { position: absolute; bottom: 0; left: 2%; }
-            .swiper-slide .title { font-size: 41px; font-weight: 300; }
-            .swiper-slide .subtitle { font-size: 21px; }
-            .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+            .swiper-area .swiper-slide img { width: 100%; height: 50%;}
+            .swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; }
+            .swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
+            .swiper-area .swiper-slide .subtitle { font-size: 21px; }
+            .swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
 
             /* Menu css */
             ul { margin: auto; padding: 0; display: table; width:100%; display: inline-block; text-align: center; }
@@ -69,6 +68,60 @@
     </head>
 
     <body>
+        <div class="swiper-area">
+            <!-- Swiper for cafe24 (적용 X - 이미지가 로드되지 않음)-->
+            <div class="swiper categorySwiper" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
+                <div class="parallax-bg" data-swiper-parallax="-23%"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div id="titleIMG" module="product_headcategory">
+                            ${title_image}
+                        </div>
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">{$title_text} 1</div>
+                            <div class="subtitle" data-swiper-parallax="-200"></div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                {$title_text} 1
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div id="titleIMG" module="product_headcategory">
+                            ${title_image}
+                        </div>
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">{$title_text} 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200"></div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                {$title_text} 2
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div id="titleIMG" module="product_headcategory">
+                            ${title_image}
+                        </div>
+                        <div class="description">
+                            <div class="title" data-swiper-parallax="-300">{$title_text} 2</div>
+                            <div class="subtitle" data-swiper-parallax="-200"></div>
+                            <div class="text" data-swiper-parallax="-100">
+                                <p>
+                                {$title_text} 3
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
         <div class="swiper-area">
             <!-- Swiper -->
             <div class="swiper categorySwiper" id="ct-1" 
