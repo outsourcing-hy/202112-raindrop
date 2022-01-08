@@ -1,0 +1,47 @@
+/* common css */
+.ds-none { display: none; }
+
+/* base swiper css */
+.swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
+.swiper-area .swiper { width: 100%; height: 100%; }
+.swiper-area .swiper-slide { display: block; width: 100%; color: #fff;
+    /* Internet Explorer 10 */
+    /* display:-ms-flexbox; */
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    /* display:-moz-box; */
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    /* display:-webkit-box; */
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    /* display:box; */
+    box-pack:center;
+    box-align:center;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* swiper parallax-bg css */
+.swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+
+.swiper-area .swiper-slide img { width: 100%; height: 50%;}
+.swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; }
+.swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
+.swiper-area .swiper-slide .subtitle { font-size: 21px; }
+.swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+
+
+/* Desktop Browser width */
+@media only screen and (min-width : 1280px) {
+    /* .swiper-slide { max-width: 100%; height : auto; } */
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Image Carousel For RDJ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Swiper JS -->
+        <script src="../js/swiper.min.7.4.1.js"></script>
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="../css/swiper.7.4.1.css" />
+        <!-- demo styles -->
+        <link rel="stylesheet" href="../css/carousel.css" />
+        <style>
+            /* base swiper css */
+            .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
+            .swiper-area .swiper { width: 100%; height: 100%; }
+            .swiper-area .swiper-slide { display: block; width: 100%; color: #000;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            /* swiper parallax-bg css */
+            .swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+
+            .swiper-area .swiper-slide img { width: 100%; height: 50%;}
+            .swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; text-align: left;}
+            .swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
+            .swiper-area .swiper-slide .subtitle { font-size: 21px; }
+            .swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="categorySwiper" type="LIFESTYLE">
+                <!--@import(/product/carousel_lifestyle.html)-->
+            </div>
+            <div class="categorySwiper" type="TIMELESS">
+                <!--@import(/product/carousel_timeless.html)-->
+            </div>
+            <div class="categorySwiper" type="CLASSIC">
+                <!--@import(/product/carousel_classic.html)-->
+            </div>
+            <div class="categorySwiper" type="MANNISH">
+                <!--@import(/product/carousel_mannish.html)-->
+            </div>
+            <div class="categorySwiper" type="LAYERED">
+                <!--@import(/product/carousel_layered.html)-->
+            </div>
+            <!-- COLLECTION 메뉴는 현재 타이틀 이미지가 없으므로 생략 -->
+            <div class="categorySwiper" type="CHAIN">
+                <!--@import(/product/carousel_chain.html)-->
+            </div>
+            <div class="categorySwiper" type="S925">
+                <!--@import(/product/carousel_s925.html)-->
+            </div>
+            <div class="categorySwiper" type="SHOP">
+                <!--@import(/product/carousel_shop.html)-->
+            </div>
+            <div class="categorySwiper" type="RING">
+                <!--@import(/product/carousel_ring.html)-->
+            </div>
+            <div class="categorySwiper" type="ETERNITY">
+                <!--@import(/product/carousel_eternity.html)-->
+            </div>
+            <div class="categorySwiper" type="SOLITAIRE"> <!-- 50_title_841286 -->
+                <!--@import(/product/carousel_solitaire.html)-->
+            </div>
+            <!-- 잠시 보류 .. -->
+            <!-- 기존 코드 변경 부분 -->
+            <!--
+            <div id="titleIMG" module="product_headcategory">
+            {$title_image}
+            </div>
+            -->
+            <h2 id="top-title" type="{$title_text}">{$title_text}</h2>
+            <!-- ---- -->
+    </body>
+    <!-- Initialize Swiper -->
+    <script>
+         var swiper = new Swiper(".categorySwiper", {
+            // parallax
+            speed: 600,
+            parallax: true,
+            // 슬라이드 효과
+            effect: "fade",
+            // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            scrollbar: {
+                el: ".swiper-scrollbar",
+                hide: true,
+            }
+        });
+
+        $(".categorySwiper").addClass("displaynone");
+        
+        $(".categorySwiper").each(function(index, elem) {
+            if( $(elem).attr("type") == $("#top-title").attr("type") 
+            || ($("#top-title").attr("type") == "변하지 않는, 타임리스" && $(elem).attr("type") == "TIMELESS")
+            || ($("#top-title").attr("type") == "가득한 반짝임, 클래식" && $(elem).attr("type") == "CLASSIC")
+            || ($("#top-title").attr("type") == "위트있는, 매니쉬" && $(elem).attr("type") == "MANNISH")
+            || ($("#top-title").attr("type") == "기분 좋은, 작은 소비" && $(elem).attr("type") == "LAYERED")
+            ) {
+                $(elem).removeClass("displaynone");
+            } 
+        });
+        
+  </script>
+</html>
