@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
  <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
@@ -69,26 +70,31 @@
 	height: 50px;
 	width: 100%;
 	border-radius: 35px;
-	margin: 1%;
+	margin: 2%;
+	text-align: center;
 }
 
 .swiper-area {
 	height: 100%;
 	width: 85%;
-	display: inline-block;'
+	display: inline-block;
 }
 
 .swiper-area .swiper.popupSwiper {
 	margin: 3%;
-	height: 50%;
+	height: 70%;
 	border-radius: 45px;
+	z-index: 0;
+	padding-bottom:50px;
 }
 
-.swiper-slide .description { position: absolute; bottom: 0; left: 2%; }
+.swiper-img { width:100%; max-height:70%; border-radius: 45px; }
+.swiper-slide:not(.swiper-slide-visible) .description { visibility: hidden;}
+.swiper-slide .description { position: absolute; bottom: -1%;}
 .swiper-slide .title { font-size: 41px; font-weight: 300; }
 .swiper-slide .subtitle { font-size: 21px; }
 .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
-
+.swiper-pagination {  position: absolute; bottom: 0;}
 </style>
 </head>
     <body>
@@ -101,10 +107,10 @@
 					<div class="popup-body">
 						<div class="swiper-area">
 				            <!-- Swiper -->
-				            <div class="swiper popupSwiper" id="ct-1" >
+				            <div class="swiper popupSwiper">
 				                <div class="swiper-wrapper">
 				                    <div class="swiper-slide">
-				                        <img src="resources/img/animal-g0b5891afa_1920.jpg" />
+				                        <img class="swiper-img" src="resources/img/animal-g0b5891afa_1920.jpg"/>
 				                        <div class="description">
 				                            <div class="title" data-swiper-parallax="-300">제목 예시</div>
 				                            <div class="subtitle" data-swiper-parallax="-200"></div>
@@ -117,7 +123,7 @@
 				                        </div>
 				                    </div>
 				                    <div class="swiper-slide">
-				                        <img src="resources/img/christmas-g58d923c6a_1920.jpg" />
+				                        <img class="swiper-img" src="resources/img/christmas-g58d923c6a_1920.jpg"/>
 				                        <div class="description">
 				                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
 				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
@@ -130,7 +136,7 @@
 				                        </div>
 				                    </div>
 				                    <div class="swiper-slide">
-				                        <img src="resources/img/church-gd9e345dc0_1920.jpg"  />
+				                        <img class="swiper-img" src="resources/img/church-gd9e345dc0_1920.jpg"/>
 				                        <div class="description">
 				                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
 				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
@@ -145,19 +151,18 @@
 				                </div>
 				                <!-- 페이징 -->
 								<div class="swiper-pagination"></div>
-				                <div class="swiper-scrollbar"></div>
 				            </div>
 				        </div>
 					</div>
 				<div class="popup-foot">
 					<span class="pop-btn confirm" id="confirm">지금 보러 갈게요</span>
-					<span class="pop-btn close" id="close">괜찮아요. 다음에 볼게요.</span>
+					<span class="pop-btn close" id="close" style="color:lightgray;">괜찮아요. 다음에 볼게요.</span>
 				</div>
 			</div>	
 		</div>
 	</div>
         <!-- Swiper JS -->
-        <script src="resources/js/swiper.min.4.1.0.js"></script>
+        <!-- <script src="resources/js/swiper.min.4.1.0.js"></script>  -->
 
         <!-- Initialize Swiper -->
         <script>
@@ -175,17 +180,12 @@
             var swiper = new Swiper(".popupSwiper", {
                 // parallax
                 speed: 600,
-                parallax: true,
                 // 슬라이드 효과
                 effect: "fade",
                 // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
                 autoplay: {
                     delay: 3000,
                     disableOnInteraction: false
-                },
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    draggable: true,
                 },
                 pagination : {
                 	el : '.swiper-pagination',
