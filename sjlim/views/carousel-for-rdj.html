@@ -34,48 +34,21 @@
     </head>
     <body>
         <div class="wrap">
-            <div class="categorySwiper" type="LIFESTYLE">
-                <!--@import(/product/carousel_lifestyle.html)-->
-            </div>
-            <div class="categorySwiper" type="TIMELESS">
-                <!--@import(/product/carousel_timeless.html)-->
-            </div>
-            <div class="categorySwiper" type="CLASSIC">
-                <!--@import(/product/carousel_classic.html)-->
-            </div>
-            <div class="categorySwiper" type="MANNISH">
-                <!--@import(/product/carousel_mannish.html)-->
-            </div>
-            <div class="categorySwiper" type="LAYERED">
-                <!--@import(/product/carousel_layered.html)-->
-            </div>
-            <!-- COLLECTION 메뉴는 현재 타이틀 이미지가 없으므로 생략 -->
-            <div class="categorySwiper" type="CHAIN">
-                <!--@import(/product/carousel_chain.html)-->
-            </div>
-            <div class="categorySwiper" type="S925">
-                <!--@import(/product/carousel_s925.html)-->
-            </div>
-            <div class="categorySwiper" type="SHOP">
-                <!--@import(/product/carousel_shop.html)-->
-            </div>
-            <div class="categorySwiper" type="RING">
+            <!-- 추가되는 부분 -->
+            <div class="categorySwiper" cateNo="45">
                 <!--@import(/product/carousel_ring.html)-->
             </div>
-            <div class="categorySwiper" type="ETERNITY">
-                <!--@import(/product/carousel_eternity.html)-->
+            <div class="categorySwiper" cateNo="44">
+                <!--@import(/product/carousel_earing.html)-->
             </div>
-            <div class="categorySwiper" type="SOLITAIRE"> <!-- 50_title_841286 -->
-                <!--@import(/product/carousel_solitaire.html)-->
+            <div class="categorySwiper" cateNo="43">
+                <!--@import(/product/carousel_bracelet.html)-->
             </div>
-            <!-- 잠시 보류 .. -->
+            <div class="categorySwiper" cateNo="42">
+                <!--@import(/product/carousel_necklace.html)-->
+            </div>
             <!-- 기존 코드 변경 부분 -->
-            <!--
-            <div id="titleIMG" module="product_headcategory">
-            {$title_image}
-            </div>
-            -->
-            <h2 id="top-title" type="{$title_text}">{$title_text}</h2>
+            <h2 id="top-title" category1="{$name_1}" param2="{$param_2}" ctlevel="{$disp_cate_1}{$disp_cate_2}{$disp_cate_3}{$disp_cate_4}">{$title_text}</h2>
             <!-- ---- -->
     </body>
     <!-- Initialize Swiper -->
@@ -97,16 +70,16 @@
             }
         });
 
+        $("#titleIMG").removeClass("displaynone");
         $(".categorySwiper").addClass("displaynone");
         
         $(".categorySwiper").each(function(index, elem) {
-            if( $(elem).attr("type") == $("#top-title").attr("type") 
-            || ($("#top-title").attr("type") == "변하지 않는, 타임리스" && $(elem).attr("type") == "TIMELESS")
-            || ($("#top-title").attr("type") == "가득한 반짝임, 클래식" && $(elem).attr("type") == "CLASSIC")
-            || ($("#top-title").attr("type") == "위트있는, 매니쉬" && $(elem).attr("type") == "MANNISH")
-            || ($("#top-title").attr("type") == "기분 좋은, 작은 소비" && $(elem).attr("type") == "LAYERED")
-            ) {
-                $(elem).removeClass("displaynone");
+            var category = $("#top-title");
+            if( category.attr("category1") == "SHOP" && category.attr("ctlevel") == "11" ) {
+                if ( category.attr("param2").replace(/[^0-9]/g,"") == $(elem).attr("cateNo") ) {
+                    $("#titleIMG").addClass("displaynone");
+                    $(elem).removeClass("displaynone");
+                }
             } 
         });
         
