@@ -107,7 +107,7 @@ html:root {
 </head>
     <body>
 		<div class="backdrop">
-			<div class="window">
+			<div class="popup-window">
 				<div class="popup" id="popup">
 					<div class="popup-head">
 						<hr />
@@ -173,22 +173,30 @@ html:root {
         <script>
         
         	window.onload = function () {
-     		  document.querySelector(".backdrop").className = "backdrop show";
-     		}
+        		var backdrop = document.querySelector(".backdrop");
+        		backdrop.className = "backdrop show";
+        		backdrop.addEventListener('click', closePopupOutside);
+        	}
 
-     		function close () { 
+     		function closePopup () { 
      		  document.querySelector(".backdrop").className = "backdrop";
      		}
+     		
+     		function closePopupOutside(e) {
+     			var target = e.target;
+     			if (e.target !== e.currentTarget) return;
+     			//if(target == e.currentTarget.querySelector(".popup-window")) return;
+     			else {
+     				closePopup();
+     			}
+     		}
 
-     		document.querySelector("#close").addEventListener('click', close);
+     		document.querySelector("#close").addEventListener('click', closePopup);
         
             var swiper = new Swiper(".popupSwiper", {
-                // parallax
                 speed: 600,
-                // 슬라이드 효과
-                effect: "fade",
-                // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
-                autoplay: {
+                effect: "fade", // 슬라이드 효과    
+                autoplay: { // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
                     delay: 3000,
                     disableOnInteraction: false
                 },
