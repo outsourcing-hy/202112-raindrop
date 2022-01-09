@@ -62,16 +62,20 @@
 .popup-foot {
 	height: 20%;
 	left: 50%;
+	text-align: center;
 }
 
 .pop-btn {
-	display: block;
-	font-size: 3vh;
-	height: 50px;
-	width: 100%;
+	display: inline-block;
+	font-size: 25px;
+	line-height: 80px;
+	width: 80%;
 	border-radius: 35px;
-	margin: 2%;
-	text-align: center;
+}
+
+.pop-btn.confirm {
+	background-color:black;
+	color:white;
 }
 
 .swiper-area {
@@ -82,19 +86,23 @@
 
 .swiper-area .swiper.popupSwiper {
 	margin: 3%;
-	height: 70%;
+	height: 100%;
 	border-radius: 45px;
 	z-index: 0;
-	padding-bottom:50px;
 }
 
-.swiper-img { width:100%; max-height:70%; border-radius: 45px; }
+.swiper-img { width:100%; height:65%; border-radius: 45px; }
 .swiper-slide:not(.swiper-slide-visible) .description { visibility: hidden;}
-.swiper-slide .description { position: absolute; bottom: -1%;}
-.swiper-slide .title { font-size: 41px; font-weight: 300; }
-.swiper-slide .subtitle { font-size: 21px; }
-.swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
-.swiper-pagination {  position: absolute; bottom: 0;}
+.swiper-slide .description { position: absolute; margin:3%; width:95%;}
+.swiper-slide .title { font-size: 50px; font-weight: 300; font-weight:bolder;}
+.swiper-slide .text { font-size: 25px; text-align:center; color:gray;}
+.swiper-horizontal>.swiper-pagination-bullets { bottom : 30px; }
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+	padding:7px; margin:20px;
+}
+html:root {
+	--swiper-theme-color: black;
+}
 </style>
 </head>
     <body>
@@ -112,12 +120,11 @@
 				                    <div class="swiper-slide">
 				                        <img class="swiper-img" src="resources/img/animal-g0b5891afa_1920.jpg"/>
 				                        <div class="description">
-				                            <div class="title" data-swiper-parallax="-300">제목 예시</div>
-				                            <div class="subtitle" data-swiper-parallax="-200"></div>
+				                            <div class="title" data-swiper-parallax="-300">제목 예시입니다</div>
 				                            <div class="text" data-swiper-parallax="-100">
 				                                <p>
-				                               		 상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
-				                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
+				                               		 본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br/>
+				                               		 본문은 총 1줄에서 2줄 까지 작성됩니다.
 				                                </p>
 				                            </div>
 				                        </div>
@@ -125,12 +132,11 @@
 				                    <div class="swiper-slide">
 				                        <img class="swiper-img" src="resources/img/christmas-g58d923c6a_1920.jpg"/>
 				                        <div class="description">
-				                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
-				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+				                            <div class="title" data-swiper-parallax="-300">제목 예시 2</div>
 				                            <div class="text" data-swiper-parallax="-100">
 				                                <p>
-				                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-				                                dictum mattis velit, sit amet faucibus felis iaculis nec.
+					                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+					                                dictum mattis velit, sit amet faucibus felis iaculis nec.
 				                                </p>
 				                            </div>
 				                        </div>
@@ -138,12 +144,11 @@
 				                    <div class="swiper-slide">
 				                        <img class="swiper-img" src="resources/img/church-gd9e345dc0_1920.jpg"/>
 				                        <div class="description">
-				                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
-				                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+				                            <div class="title" data-swiper-parallax="-300">제목 예시 3</div>
 				                            <div class="text" data-swiper-parallax="-100">
 				                                <p>
-				                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-				                                dictum mattis velit, sit amet faucibus felis iaculis nec. 
+				                                	본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br/>
+				                               		 본문은 총 1줄에서 2줄 까지 작성됩니다.
 				                                </p>
 				                            </div>
 				                        </div>
@@ -156,7 +161,7 @@
 					</div>
 				<div class="popup-foot">
 					<span class="pop-btn confirm" id="confirm">지금 보러 갈게요</span>
-					<span class="pop-btn close" id="close" style="color:lightgray;">괜찮아요. 다음에 볼게요.</span>
+					<span class="pop-btn close" id="close" style="color:gray;">괜찮아요. 다음에 볼게요.</span>
 				</div>
 			</div>	
 		</div>
