@@ -71,3 +71,23 @@
         <div class="swiper-scrollbar"></div>
     </div>
 </div>
+
+<script>
+    // 상품목록 캐로셀
+    var swiper = new Swiper(".categorySwiper", {
+        // parallax
+        speed: 600,
+        parallax: true,
+        // 슬라이드 효과
+        effect: "fade",
+        // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+        }
+    });    
+</script>
