@@ -30,6 +30,11 @@
             .swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
             .swiper-area .swiper-slide .subtitle { font-size: 21px; }
             .swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+
+            .newSubCate img { width:65px; height: 65px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
+            .newSubCate a:hover img { border: 2px solid black; padding: 5%; }
+            .newSubCate p { margin: 0; vertical-align: middle; position: relative; line-height: 3; }
+            .newSubCate a:hover p { font-weight: bold; }
         </style>
     </head>
     <body>
@@ -49,7 +54,28 @@
             </div>
             <!-- 기존 코드 변경 부분 -->
             <h2 id="top-title" category1="{$name_1}" param2="{$param_2}" ctlevel="{$disp_cate_1}{$disp_cate_2}{$disp_cate_3}{$disp_cate_4}">{$title_text}</h2>
-            <!-- ---- -->
+            <!-- 하위 카테고리 부분 -->
+            <a class="newSubCate displaynone" href="/product/list_thumb.html?{$param_cate_no}" subcateno="{$param_cate_no}">
+                <!-- ring -->
+                <img class="displaynone" subcateno="49" src="/web/upload/category/mobile/shop1_49_title_353701.jpg" />
+                <img class="displaynone" subcateno="50" src="/web/upload/category/mobile/shop1_50_title_841286.jpg" />
+                <!-- earing -->
+                <img class="displaynone" subcateno="68" src="/web/upload/category/mobile/shop1_68_title_534941.jpg" />
+                <img class="displaynone" subcateno="69" src="/web/upload/category/mobile/shop1_69_title_914541.jpg" />
+                <img class="displaynone" subcateno="73" src="/web/upload/category/mobile/shop1_73_title_541042.jpg" />
+                <img class="displaynone" subcateno="96" src="/web/upload/category/mobile/shop1_96_title_675379.jpg" />
+                <!-- bracelet -->
+                <img class="displaynone" subcateno="92" src="/web/upload/category/mobile/shop1_92_title_300105.jpg" />
+                <img class="displaynone" subcateno="93" src="/web/upload/category/mobile/shop1_93_title_190052.jpg" />
+                <!-- necklace -->
+                <img class="displaynone" subcateno="47" src="/web/upload/category/mobile/shop1_47_title_858168.jpg" />
+                <img class="displaynone" subcateno="79" src="/web/upload/category/mobile/shop1_79_title_639183.jpg" />
+                <img class="displaynone" subcateno="48" src="/web/upload/category/mobile/shop1_48_title_768202.jpg" />
+                <p>{$category_name}</p>
+                <span class="count {$product_count_display|display}">({$product_count})</span>
+            </a>
+            <a class="orgSubCate" href="/product/list_thumb.html?{$param_cate_no}">{$category_name} <span class="count {$product_count_display|display}">({$product_count})</span></a>
+            <!-- ------>
     </body>
     <!-- Initialize Swiper -->
     <script>
@@ -69,19 +95,33 @@
                 hide: true,
             }
         });
-
+        // 캐로셀
         $("#titleIMG").removeClass("displaynone");
         $(".categorySwiper").addClass("displaynone");
+        // 서브 카테고리
+        $(".newSubcate").addClass("displaynone");
+        $(".newSubcate img").addClass("displaynone");
+        $(".orgSubCate").removeClass("displaynone");
+
         
         $(".categorySwiper").each(function(index, elem) {
             var category = $("#top-title");
             if( category.attr("category1") == "SHOP" && category.attr("ctlevel") == "11" ) {
+                // 카테고리 캐로셀 표시
                 if ( category.attr("param2").replace(/[^0-9]/g,"") == $(elem).attr("cateNo") ) {
                     $("#titleIMG").addClass("displaynone");
                     $(elem).removeClass("displaynone");
                 }
+
+                // 서브 카테고리 이미지 표시
+                $(".newSubcate").removeClass("displaynone");
+                $(".orgSubCate").addClass("displaynone");
+                $(".newSubCate img").each(function(index, elem2) {
+                    if ($(elem2).parent(".newSubCate").attr("subcateno") == $(elem2).attr("subcateno")) {
+                        $(elem2).removeClass("displaynone");
+                    }
+                });
             } 
         });
-        
   </script>
 </html>
