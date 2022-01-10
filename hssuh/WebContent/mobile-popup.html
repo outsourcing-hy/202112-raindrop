@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-<meta name="format-detection" content="telephone=no">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no"> -->
 <title>Insert title here</title>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
@@ -25,6 +25,11 @@
 .show {
 	opacity: 1;
 	z-index: 1000;
+}
+
+.popup-window {
+	display:none;
+	bottom:0;
 }
 
 .popup {
@@ -169,15 +174,17 @@ html:root {
 		</div>
 	</div>
         <script>
-        
         	window.onload = function () {
+        		$('.popup-window').slideDown( 3000 );
         		var backdrop = document.querySelector(".backdrop");
         		backdrop.className = "backdrop show";
         		backdrop.addEventListener('click', closePopupOutside);
+        		//$('.popup-window').show('slide', {direction: 'up'});
         	}
 
-     		function closePopup () { 
-     		  document.querySelector(".backdrop").className = "backdrop";
+     		function closePopup () {
+     			 $('#popup').show('slide', {direction: 'down'});
+     		  //document.querySelector(".backdrop").className = "backdrop";
      		}
      		
      		function closePopupOutside(e) {
