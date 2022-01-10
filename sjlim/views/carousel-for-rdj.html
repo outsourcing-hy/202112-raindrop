@@ -12,103 +12,94 @@
         <!-- demo styles -->
         <link rel="stylesheet" href="../css/carousel.css" />
         <style>
-            /* base swiper css */
-            .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
-            .swiper-area .swiper { width: 100%; height: 100%; }
-            .swiper-area .swiper-slide { display: block; width: 100%; color: #000;
-                /* Center and scale the image nicely */
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
+        /*--------------------------------------------------------------------*\
+        상품목록 캐로셀
+        \*--------------------------------------------------------------------*/
+        /* base swiper css */
+        .swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
+        .swiper-area .swiper { width: 100%; height: 100%; }
+        .swiper-area .swiper-slide { display: block; width: 100%; color: #000;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-            /* swiper parallax-bg css */
-            .swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+        /* swiper parallax-bg css */
+        .swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
 
-            .swiper-area .swiper-slide img { width: 100%; height: 50%;}
-            .swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; text-align: left;}
-            .swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
-            .swiper-area .swiper-slide .subtitle { font-size: 21px; }
-            .swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+        .swiper-area .swiper-slide img { width: 100%; height: 50%;}
+        .swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; text-align: left;}
+        .swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
+        .swiper-area .swiper-slide .subtitle { font-size: 21px; }
+        .swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
 
-            .newSubCate img { width:65px; height: 65px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
-            .newSubCate a:hover img { border: 2px solid black; padding: 5%; }
-            .newSubCate p { margin: 0; vertical-align: middle; position: relative; line-height: 3; }
-            .newSubCate a:hover p { font-weight: bold; }
+        .menuCategory img { width:65px; height: 65px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
+        .menuCategory a:hover img { border: 2px solid black; padding: 5%; }
+        .menuCategory p { margin: 0; vertical-align: middle; position: relative; line-height: 3; }
+        .menuCategory a:hover p { font-weight: bold; }
         </style>
     </head>
     <body>
         <div class="wrap">
-            <!-- 기존 코드 변경 부분 -->
-            <h2 id="top-title" category1="{$name_1}" param2="{$param_2}" ctlevel="{$disp_cate_1}{$disp_cate_2}{$disp_cate_3}{$disp_cate_4}">{$title_text}</h2>
+            <!-- update carousel -->
+             <div id="titleIMG" module="product_headcategory" cateno="{$param_2}" category1="{$name_1}" ctlevel="{$disp_cate_1}{$disp_cate_2}{$disp_cate_3}{$disp_cate_4}">
+            {$title_image}
+            </div>
+            <!-- original version (before carousel) -->
+            <!-- <div id="titleIMG" module="product_headcategory">
+            {$title_image}
+            </div> -->
             <!-- 하위 카테고리 부분 -->
-            <a class="newSubCate displaynone" href="/product/list_thumb.html?{$param_cate_no}" subcateno="{$param_cate_no}">
-                <!-- ring -->
-                <img class="displaynone" subcateno="49" src="/web/upload/category/mobile/shop1_49_title_353701.jpg" />
-                <img class="displaynone" subcateno="50" src="/web/upload/category/mobile/shop1_50_title_841286.jpg" />
-                <!-- earing -->
-                <img class="displaynone" subcateno="68" src="/web/upload/category/mobile/shop1_68_title_534941.jpg" />
-                <img class="displaynone" subcateno="69" src="/web/upload/category/mobile/shop1_69_title_914541.jpg" />
-                <img class="displaynone" subcateno="73" src="/web/upload/category/mobile/shop1_73_title_541042.jpg" />
-                <img class="displaynone" subcateno="96" src="/web/upload/category/mobile/shop1_96_title_675379.jpg" />
-                <!-- bracelet -->
-                <img class="displaynone" subcateno="92" src="/web/upload/category/mobile/shop1_92_title_300105.jpg" />
-                <img class="displaynone" subcateno="93" src="/web/upload/category/mobile/shop1_93_title_190052.jpg" />
-                <!-- necklace -->
-                <img class="displaynone" subcateno="47" src="/web/upload/category/mobile/shop1_47_title_858168.jpg" />
-                <img class="displaynone" subcateno="79" src="/web/upload/category/mobile/shop1_79_title_639183.jpg" />
-                <img class="displaynone" subcateno="48" src="/web/upload/category/mobile/shop1_48_title_768202.jpg" />
-                <p>{$category_name}</p>
-                <span class="count {$product_count_display|display}">({$product_count})</span>
-            </a>
-            <a class="orgSubCate" href="/product/list_thumb.html?{$param_cate_no}">{$category_name} <span class="count {$product_count_display|display}">({$product_count})</span></a>
+            <!-- image subcategory (div tag) -->
+            <div class="subcate" subcateno="{$param_cate_no}"> -->
+            {$category_name}
+            </div>
             <!-- ------>
     </body>
     <!-- Initialize Swiper -->
     <script>
-         var swiper = new Swiper(".categorySwiper", {
-            // parallax
-            speed: 600,
-            parallax: true,
-            // 슬라이드 효과
-            effect: "fade",
-            // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            scrollbar: {
-                el: ".swiper-scrollbar",
-                hide: true,
-            }
-        });
-        // 캐로셀
-        $("#titleIMG").removeClass("displaynone");
-        $(".categorySwiper").addClass("displaynone");
-        // 서브 카테고리
-        $(".newSubcate").addClass("displaynone");
-        $(".newSubcate img").addClass("displaynone");
-        $(".orgSubCate").removeClass("displaynone");
-
+    $(function() {
+        var categoryMap = {
+            "?cate_no=45":"ring",
+            "?cate_no=44":"earing",
+            "?cate_no=43":"bracelet",
+            "?cate_no=42":"necklace"        
+        }
         
-        $(".categorySwiper").each(function(index, elem) {
-            var category = $("#top-title");
-            if( category.attr("category1") == "SHOP" && category.attr("ctlevel") == "11" ) {
-                // 카테고리 캐로셀 표시
-                if ( category.attr("param2").replace(/[^0-9]/g,"") == $(elem).attr("cateNo") ) {
-                    $("#titleIMG").addClass("displaynone");
-                    $(elem).removeClass("displaynone");
-                }
+        var subcategoryMap = {
+            "cate_no=49":"eternity",
+            "cate_no=50":"solitaire",
+            "cate_no=68":"stud",
+            "cate_no=69":"drop",
+            "cate_no=73":"ring",
+            "cate_no=96":"earcuff",
+            "cate_no=92":"tennis",
+            "cate_no=93":"link",
+            "cate_no=47":"choker",
+            "cate_no=79":"tennis-nk",
+            "cate_no=48":"pendant",
+        }
+        
+        if($("#titleIMG").attr("category1") == "SHOP" &&  $("#titleIMG").attr("ctlevel") == "11" ) {
+            // carousel
+            let htmlname = "carousel_"+ categoryMap[$("#titleIMG").attr("cateno")] + ".html";
+            $("#titleIMG").load(htmlname);
+            
+            // sub category img
+            
+            $(".subcate").each(function(index, elem) {
+                let subcatename = $(elem).text();
+                let subcateno =  $(elem).attr("subcateno");
+                
+                // img url ex) /web/upload/category/shop/necklace/subcategory_eternity.jpg
+                let src =  "/web/upload/category/shop/" + categoryMap[$("#titleIMG").attr("cateno")] + "/subcategory_" + subcategoryMap[subcateno] + ".jpg";
 
-                // 서브 카테고리 이미지 표시
-                $(".newSubcate").removeClass("displaynone");
-                $(".orgSubCate").addClass("displaynone");
-                $(".newSubCate img").each(function(index, elem2) {
-                    if ($(elem2).parent(".newSubCate").attr("subcateno") == $(elem2).attr("subcateno")) {
-                        $(elem2).removeClass("displaynone");
-                    }
-                });
-            } 
-        });
+                let imgsubcate = "<img class='categoryImg' src='" + src + "' alt='' /><p>" + subcatename + "</p>";
+                $(elem).html(imgsubcate);
+                $(elem).parent("a").css("border","0");
+            });
+        }
+    });
   </script>
 </html>
