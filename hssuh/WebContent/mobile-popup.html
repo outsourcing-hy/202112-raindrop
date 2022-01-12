@@ -175,16 +175,16 @@ html:root {
 	</div>
         <script>
         	window.onload = function () {
-        		$('.popup-window').slideDown( 3000 );
         		var backdrop = document.querySelector(".backdrop");
         		backdrop.className = "backdrop show";
         		backdrop.addEventListener('click', closePopupOutside);
-        		//$('.popup-window').show('slide', {direction: 'up'});
+        		$(".popup-window").slideDown("1000"); 
+        		
         	}
 
      		function closePopup () {
-     			 $('#popup').show('slide', {direction: 'down'});
-     		  //document.querySelector(".backdrop").className = "backdrop";
+     			$(".popup-window").slideUp("1000");
+     		 	document.querySelector(".backdrop").className = "backdrop";
      		}
      		
      		function closePopupOutside(e) {
