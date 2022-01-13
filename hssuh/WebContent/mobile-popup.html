@@ -28,7 +28,6 @@
 }
 
 .popup-window {
-	display:none;
 	bottom:0;
 }
 
@@ -175,11 +174,10 @@ html:root {
 	</div>
         <script>
         	window.onload = function () {
+        		$(".popup-window").slideDown("1000"); 
         		var backdrop = document.querySelector(".backdrop");
         		backdrop.className = "backdrop show";
         		backdrop.addEventListener('click', closePopupOutside);
-        		$(".popup-window").slideDown("1000"); 
-        		
         	}
 
      		function closePopup () {
@@ -188,9 +186,7 @@ html:root {
      		}
      		
      		function closePopupOutside(e) {
-     			var target = e.target;
      			if (e.target !== e.currentTarget) return;
-     			//if(target == e.currentTarget.querySelector(".popup-window")) return;
      			else {
      				closePopup();
      			}
