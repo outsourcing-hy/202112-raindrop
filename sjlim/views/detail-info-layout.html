@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Info Layout</title>
+    <style>
+        ul { list-style-type: none; }
+        .f-left { float: left; }
+        .f-right { float: right; }
+        .f-both { float: both; }
+    </style>
+</head>
+<body>
+    <section>
+        <h3>Before</h3>
+        <div>
+            <ul>
+                <li>Summary desc</li>
+                <li>Product name</li>
+                <li>Product price</li>
+                <li>Product sale price</li>
+            </ul>
+        </div>
+        <br />
+        <h3>After</h3>
+        <div>
+            <ul>
+                <!-- <li><span class="f-left">리뷰: review count</span><span class="f-right">summary desc</span></li>
+                <li><span class="f-both">product name</span></li> -->
+                <li>
+                    <table>
+                        <tr>
+                            <td class="f-left">리뷰: review count</td>
+                            <td class="f-right">summary desc</td>
+                        </tr>
+                        <tr><td>product name</td></tr>
+                        <tr>
+                            <td rowspan="2">discount rate</td>
+                            <td>product price</td>
+                        </tr>
+                        <tr>
+                            <td>product sale price</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
