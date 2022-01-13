@@ -179,11 +179,11 @@
     $(function() {
         // sale percent calc
         $(".info-bottom").each(function(idx, elem) {
-            var prdPrice = $(elem).children(".prdPrice").text().replace(/[^0-9]/g, "");
-            var salePriceOrg = $(elem).children(".sale-info").children(".salePrice").text();
-            var salePrice = salePriceOrg.replace(/[^0-9]/g, "");
+            const prdPrice = $(elem).children(".prdPrice").text().replace(/[^0-9]/g, "");
+            const salePriceOrg = $(elem).children(".sale-info").children(".salePrice").text();
+            const salePrice = salePriceOrg.replace(/[^0-9]/g, "");
 
-            var salePercent = (prdPrice - salePrice) / prdPrice * 100;
+            const salePercent = (prdPrice - salePrice) / prdPrice * 100;
             if (prdPrice !== salePrice && salePrice !== "") {
                 $(elem).children(".sale-info").children(".sale-percent").text(Math.round(salePercent) + '%');
                 $(elem).children(".sale-info").children(".salePrice").text(salePriceOrg);
