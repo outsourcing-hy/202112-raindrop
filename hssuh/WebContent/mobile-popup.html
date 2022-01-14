@@ -192,6 +192,15 @@ html:root {
      			}
      		}
 
+            function setCookie(cookie_name, value, days) {
+          	  var exdate = new Date();
+          	  exdate.setDate(exdate.getDate() + days);
+          	  // 설정 일수만큼 현재시간에 만료값으로 지정
+
+          	  var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+          	  document.cookie = cookie_name + '=' + cookie_value;
+          	}
+     		
      		document.querySelector("#close").addEventListener('click', closePopup);
         
             var swiper = new Swiper(".popupSwiper", {
@@ -206,6 +215,9 @@ html:root {
             		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
                 }
             });
+            
+
+            
             
       </script>
 </body>
