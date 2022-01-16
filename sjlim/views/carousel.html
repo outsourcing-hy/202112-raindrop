@@ -15,9 +15,10 @@
         li { display: inline-block; text-align: center; margin: 2%; }
         a { text-decoration: none; color: black; }
         li a img { width:80px; height: 80px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
-        li a.active img { border: 2px solid black; padding: 5%; }
+        /* li a.active img { border: 2px solid black; padding: 5%; } */
+        li a:hover img { filter: brightness(70%); }
         li a p { margin: 0; vertical-align: middle; position: relative; }
-        li a.active p { font-weight: bold; }
+        /* li a.active p { font-weight: bold; } */
         </style>
     </head>
 
@@ -32,7 +33,6 @@
                         <img src="../img/ring-1.jpg" alt="earing image" />
                         <div class="description">
                             <div class="title" data-swiper-parallax="-300">제목 예시</div>
-                            <div class="subtitle" data-swiper-parallax="-200"></div>
                             <div class="text" data-swiper-parallax="-100">
                                 <p>
                                 상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
@@ -44,12 +44,11 @@
                     <div class="swiper-slide">
                         <img src="../img/ring-2.jpg" alt="earing image" />
                         <div class="description">
-                            <div class="title" data-swiper-parallax="-300">Slide 2</div>
-                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="title" data-swiper-parallax="-300">제목 예시 2</div>
                             <div class="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec.
+                                상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
                                 </p>
                             </div>
                         </div>
@@ -57,12 +56,11 @@
                     <div class="swiper-slide">
                         <img src="../img/ring-3.jpg" alt="earing image" />
                         <div class="description">
-                            <div class="title" data-swiper-parallax="-300">Slide 3</div>
-                            <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                            <div class="title" data-swiper-parallax="-300">제목 예시 3</div>
                             <div class="text" data-swiper-parallax="-100">
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                dictum mattis velit, sit amet faucibus felis iaculis nec. 
+                                상세 내용이 입력되는 부분입니다. 임시로 입력한 데이터입니다.
+                                raindrop-jewerly raindrop-jewerly raindrop-jewerly raindrop-jewerly
                                 </p>
                             </div>
                         </div>
@@ -218,8 +216,7 @@
                     disableOnInteraction: false
                 },
                 scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: true,
+                    el: ".swiper-scrollbar"
                 }
             });
 
