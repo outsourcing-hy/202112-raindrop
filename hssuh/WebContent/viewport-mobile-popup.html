@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
 .backdrop {
@@ -22,6 +21,10 @@
 .show {
 	opacity: 1;
 	z-index: 1000;
+}
+
+.popup-window {
+	bottom:0;
 }
 
 .popup {
@@ -59,15 +62,13 @@
 }
 
 .popup-foot {
-	height: 35%;
-	left: 50%;
 	text-align: center;
 }
 
 .pop-btn {
 	display: inline-block;
 	font-size: 15px;
-	line-height: 60px;
+	line-height: 40px;
 	width: 80%;
 	border-radius: 15px;
 }
@@ -87,6 +88,7 @@
 	margin: 3%;
 	height: 100%;
 	border-radius: 15px;
+	z-index: 0;
 }
 
 #fp-nav {
@@ -99,7 +101,7 @@
 	border-radius: 15px;
 }
 
-.swiper-slide:not (.swiper-slide-visible ) .description {
+.swiper-slide:not(.swiper-slide-visible) .description {
 	visibility: hidden;
 }
 
@@ -110,12 +112,12 @@
 }
 
 .swiper-slide .swiper-title {
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bolder;
 }
 
 .swiper-slide .swiper-text {
-	font-size: 15px;
+	font-size: 12px;
 	text-align: center;
 	color: gray;
 }
@@ -123,12 +125,11 @@
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
 	{
-	padding: 3px;
-	margin: 10px;
+	margin: 7px;
 }
 
-html:root { -
-	-swiper-theme-color: black;
+html:root {
+	--swiper-theme-color: black;
 }
 </style>
 </head>
@@ -195,13 +196,15 @@ html:root { -
 
 	<script type="text/javascript">
 		window.onload = function() {
+			$(".popup-window").slideDown("1000"); 
 			var backdrop = document.querySelector(".backdrop");
 			backdrop.className = "backdrop show";
 			backdrop.addEventListener('click', closePopupOutside);
 		}
 
 		function closePopup() {
-			document.querySelector(".backdrop").className = "backdrop";
+			$(".popup-window").slideUp("1000");
+ 		 	document.querySelector(".backdrop").className = "backdrop";
 			$("#fp-nav").css("z-index", "100");
 		}
 
@@ -209,12 +212,20 @@ html:root { -
 			var target = e.target;
 			if (e.target !== e.currentTarget)
 				return;
-			//if(target == e.currentTarget.querySelector(".popup-window")) return;
 			else {
 				closePopup();
 			}
 		}
 
+		 function setCookie(cookie_name, value, days) {
+         	  var exdate = new Date();
+         	  exdate.setDate(exdate.getDate() + days);
+         	  // 설정 일수만큼 현재시간에 만료값으로 지정
+
+         	  var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+         	  document.cookie = cookie_name + '=' + cookie_value;
+         	}
+		
 		document.querySelector("#close").addEventListener('click', closePopup);
 
 		var swiper = new Swiper(".popupSwiper", {
