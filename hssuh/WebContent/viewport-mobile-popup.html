@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
+<style type="text/css">
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: -1;
+	opacity: 0;
+}
+
+.show {
+	opacity: 1;
+	z-index: 1000;
+}
+
+.popup-window {
+	bottom:0;
+}
+
+.popup {
+	position: fixed;
+	bottom: 0;
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	width: 100%;
+	height: 65%;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	overflow: hidden;
+}
+
+.popup hr {
+	width: 20%;
+	height: 10px;
+	background: lightgray;
+	border-radius: 15px;
+}
+
+.popup-head {
+	width: 100%;
+	padding-bottom: 15px;
+	padding-top: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10%;
+}
+
+.popup-body {
+	height: 65%;
+	text-align: center;
+}
+
+.popup-foot {
+	text-align: center;
+}
+
+.pop-btn {
+	display: inline-block;
+	font-size: 15px;
+	line-height: 40px;
+	width: 80%;
+	border-radius: 15px;
+}
+
+.pop-btn.confirm {
+	background-color: black;
+	color: white;
+}
+
+.swiper-area {
+	height: 100%;
+	width: 85%;
+	display: inline-block;
+}
+
+.swiper-area .swiper.popupSwiper {
+	margin: 3%;
+	height: 100%;
+	border-radius: 15px;
+	z-index: 0;
+}
+
+#fp-nav {
+	z-index: 0;
+}
+
+.swiper-img {
+	width: 100%;
+	height: 50%;
+	border-radius: 15px;
+}
+
+.swiper-slide:not(.swiper-slide-visible) .description {
+	visibility: hidden;
+}
+
+.swiper-slide .description {
+	position: absolute;
+	margin: 3%;
+	width: 95%;
+}
+
+.swiper-slide .swiper-title {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.swiper-slide .swiper-text {
+	font-size: 12px;
+	text-align: center;
+	color: gray;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+	{
+	margin: 7px;
+}
+
+html:root {
+	--swiper-theme-color: black;
+}
+</style>
+</head>
+<body>
+	<div class="backdrop">
+		<div class="popup-window">
+			<div class="popup">
+				<div class="popup-head">
+					<hr />
+				</div>
+				<div class="popup-body">
+					<div class="swiper-area">
+						<div class="swiper popupSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img class="swiper-img" src="resources/img/animal-g0b5891afa_1920.jpg"/>
+									<div class="description">
+										<div class="swiper-title" data-swiper-parallax="-300">제목
+											예시입니다</div>
+										<div class="swiper-text" data-swiper-parallax="-100">
+											<p>
+												본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br /> 본문은 총 1줄에서 2줄 까지 작성됩니다.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<img class="swiper-img" src="resources/img/christmas-g58d923c6a_1920.jpg"/>
+									<div class="description">
+										<div class="swiper-title" data-swiper-parallax="-300">제목
+											예시 2</div>
+										<div class="swiper-text" data-swiper-parallax="-100">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+												elit. Aliquam dictum mattis velit, sit amet faucibus felis
+												iaculis nec.</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<img class="swiper-img" src="resources/img/church-gd9e345dc0_1920.jpg"/>
+									<div class="description">
+										<div class="swiper-title" data-swiper-parallax="-300">제목
+											예시 3</div>
+										<div class="swiper-text" data-swiper-parallax="-100">
+											<p>
+												본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br /> 본문은 총 1줄에서 2줄 까지 작성됩니다.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+				<div class="popup-foot">
+					<span class="pop-btn confirm" id="confirm">지금 보러 갈게요</span> <span
+						class="pop-btn close" id="close" style="color: gray;">괜찮아요.
+						다음에 볼게요.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			$(".popup-window").slideDown("1000"); 
+			var backdrop = document.querySelector(".backdrop");
+			backdrop.className = "backdrop show";
+			backdrop.addEventListener('click', closePopupOutside);
+		}
+
+		function closePopup() {
+			$(".popup-window").slideUp("1000");
+ 		 	document.querySelector(".backdrop").className = "backdrop";
+			$("#fp-nav").css("z-index", "100");
+		}
+
+		function closePopupOutside(e) {
+			var target = e.target;
+			if (e.target !== e.currentTarget)
+				return;
+			else {
+				closePopup();
+			}
+		}
+
+		 function setCookie(cookie_name, value, days) {
+         	  var exdate = new Date();
+         	  exdate.setDate(exdate.getDate() + days);
+         	  // 설정 일수만큼 현재시간에 만료값으로 지정
+
+         	  var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+         	  document.cookie = cookie_name + '=' + cookie_value;
+         	}
+		
+		document.querySelector("#close").addEventListener('click', closePopup);
+
+		var swiper = new Swiper(".popupSwiper", {
+			speed : 600,
+			effect : "fade", // 슬라이드 효과    
+			autoplay : { // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+				delay : 3000,
+				disableOnInteraction : false
+			},
+			pagination : {
+				el : '.swiper-pagination',
+				clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+			}
+		});
+	</script>
+</body>
+</html>
