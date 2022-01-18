@@ -196,10 +196,16 @@ html:root {
 
 	<script type="text/javascript">
 		window.onload = function() {
-			var cookie = getCookie('use-popup');
-    		if(cookie) {
-    			return;	
+			var visit = getCookie("visit");
+    		if(!visit) {
+    			visit = 1;
+    			alert(visit);
+    		} else {
+    			visit++;
+    			alert(visit);
     		}
+    		
+    		document.cookie = "visit="+visit;
     		
 			$(".popup-window").slideDown("1000"); 
 			var backdrop = document.querySelector(".backdrop");
@@ -236,15 +242,6 @@ html:root {
      			}
      		}
  		}
-
-		 function setCookie(cookie_name, value, days) {
-         	  var exdate = new Date();
-         	  exdate.setDate(exdate.getDate() + days);
-         	  // 설정 일수만큼 현재시간에 만료값으로 지정
-
-         	  var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
-         	  document.cookie = cookie_name + '=' + cookie_value;
-         	}
 		
 		document.querySelector("#close").addEventListener('click', closePopup);
 
