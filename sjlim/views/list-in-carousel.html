@@ -12,7 +12,7 @@
     li { background-color: cadetblue; width: 50%; height: 50px; display: inline-block;}
 </style>
 <body>
-    <ul>
+    <ul class="prdList">
         <li>A 1</li>
         <li>B 2</li>
         <li>C 3</li>
@@ -30,13 +30,31 @@
 
     let index = 2;
     for ( let i = 1;; i++ ) {
-        // console.log(i, index, liLen);
+        console.log(i, index, liLen);
         if (index >= liLen) break;
+
+        /* jQuery version */
+        let newElem = $("<li></li>");
+        $(newElem).addClass("itemCarousel");
+        $(newElem).text("empty");
+        $(".prdList li:nth-child("+index+")").after(newElem);
+
+        if (i % 2 == 0) {
+            $(newElem).css("width", "100%");
+            index = index + 3;
+        } else {
+            index = index + 4;
+        }
+
+        /*
+         * Javascript version
         let newNode = document.createElement("li");
         newNode.textContent = "empty";
         newNode.className = "listCarousel";
+        
         let target = document.getElementsByTagName("li").item(index);
         let parentDiv = target.parentNode;
+        
         if (i % 2 == 0) {
             newNode.style.width = "100%";
             index = index + 3;
@@ -44,6 +62,8 @@
             index = index + 4;
         }
         parentDiv.insertBefore(newNode, target);
+
+        */
         liLen++;
     }
 </script>
