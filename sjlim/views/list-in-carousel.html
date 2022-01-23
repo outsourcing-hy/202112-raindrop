@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List In Carousel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+    ul { width:100%; list-style: none; display: table; table-layout: fixed; margin: 0; padding: 0; }
+    li { background-color: cadetblue; width: 50%; height: 50px; display: inline-block;}
+</style>
+<body>
+    <ul>
+        <li>A 1</li>
+        <li>B 2</li>
+        <li>C 3</li>
+        <li>D 4</li>
+        <li>E 5</li>
+        <li>F 6</li>
+        <li>G 7</li>
+        <li>H 8</li>
+        <li>I 9</li>
+        <li>J 10</li>
+    </ul>
+</body>
+<script>
+    let liLen = $("li").length;
+
+    let index = 2;
+    for ( let i = 1;; i++ ) {
+        // console.log(i, index, liLen);
+        if (index >= liLen) break;
+        let newNode = document.createElement("li");
+        newNode.textContent = "empty";
+        newNode.className = "listCarousel";
+        let target = document.getElementsByTagName("li").item(index);
+        let parentDiv = target.parentNode;
+        if (i % 2 == 0) {
+            newNode.style.width = "100%";
+            index = index + 3;
+        } else {
+            index = index + 4;
+        }
+        parentDiv.insertBefore(newNode, target);
+        liLen++;
+    }
+</script>
+</html>
