@@ -7,43 +7,44 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
-.backdrop {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
-	z-index: -1;
-	opacity: 0;
+.open-popup {
+	background: none rgb(255, 255, 255);
+    margin-top: 0px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
+    bottom: calc(env(safe-area-inset-bottom) + 0px);
+    border-radius: 28px 28px 0px 0px;
+    overscroll-behavior: contain;
+    z-index: 9999;
+    transition: transform 0.25s ease-in-out 0s;
+    transform: translateY(0px);
 }
 
-.show {
-	opacity: 1;
-	z-index: 1000;
+.open-popup::before {
+    display: block;
+    width: 60px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgb(209, 209, 209);
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+    content: "";
 }
-
-.popup-window {
-	bottom:0;
-}
-
-.popup {
-	position: fixed;
-	bottom: 0;
-	background-color: #ffffff;
-	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-	width: 100%;
-	height: 65%;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	overflow: hidden;
-}
-
+/*
 .popup hr {
 	width: 60px;
 	height: 4px;
 	background: rgb(209, 209, 209);
 	border-radius: 2px;
+}*/
+
+.popup {
+	padding: 70px 20px 46px;
+    text-align: center;
 }
 
 .popup-head {
@@ -134,8 +135,7 @@ html:root {
 </style>
 </head>
 <body>
-	<div class="backdrop">
-		<div class="popup-window">
+	<div class="open-popup">
 			<div class="popup">
 				<div class="popup-head">
 					<hr />
@@ -192,7 +192,6 @@ html:root {
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<script type="text/javascript">
 		window.onload = function() {
@@ -207,15 +206,11 @@ html:root {
     		
     		document.cookie = "visit="+visit;
     		
-			$(".popup-window").slideDown("1000"); 
-			var backdrop = document.querySelector(".backdrop");
-			backdrop.className = "backdrop show";
-			backdrop.addEventListener('click', closePopupOutside);
+			//$(".popup-window").slideDown("1000"); 
 		}
 
 		function closePopup() {
-			$(".popup-window").slideUp("1000");
- 		 	document.querySelector(".backdrop").className = "backdrop";
+			//$(".popup-window").slideUp("1000");
 			$("#fp-nav").css("z-index", "100");
 			setCookie('use-popup', true, '1');
 		}
