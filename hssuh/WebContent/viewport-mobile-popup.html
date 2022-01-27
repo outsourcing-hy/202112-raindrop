@@ -7,6 +7,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
+.popup-background {
+	display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.4;
+    z-index: 9998;
+}
+
 .open-popup {
 	background: none rgb(255, 255, 255);
     margin-top: 0px;
@@ -43,13 +55,8 @@
 }*/
 
 .popup {
-	padding: 70px 20px 46px;
+	padding: 50px 0px 10px;
     text-align: center;
-}
-
-.popup-body {
-	height: 65%;
-	text-align: center;
 }
 
 .popup-foot {
@@ -60,7 +67,7 @@
 	display: inline-block;
 	font-size: 15px;
 	line-height: 40px;
-	width: 80%;
+	width: 90%;
 	border-radius: 15px;
 }
 
@@ -70,14 +77,10 @@
 }
 
 .swiper-area {
-	height: 100%;
-	width: 85%;
-	display: inline-block;
+	width: 100%;
 }
 
 .swiper-area .swiper.popupSwiper {
-	margin: 3%;
-	height: 100%;
 	border-radius: 15px;
 	z-index: 0;
 }
@@ -87,9 +90,13 @@
 }
 
 .swiper-img {
-	width: 300px;
-	height: 200px;
+	width: 90%;
+	height: 150px;
 	border-radius: 15px;
+}
+
+.swiper-wrapper {
+	bottom: 10px;
 }
 
 .swiper-slide:not(.swiper-slide-visible) .description {
@@ -97,9 +104,9 @@
 }
 
 .swiper-slide .description {
-	position: absolute;
-	margin: 3%;
-	width: 95%;
+	width: 90%;
+	height: 100px;
+	margin-left: 5%;
 }
 
 .swiper-slide .swiper-title {
@@ -113,9 +120,12 @@
 	color: gray;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
-	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
-	{
+.swiper-horizontal>.swiper-pagination-bullets  {
+	bottom: 0;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+{
 	margin: 7px;
 }
 
@@ -127,7 +137,6 @@ html:root {
 <body>
 	<div class="open-popup">
 			<div class="popup">
-				<div class="popup-body">
 					<div class="swiper-area">
 						<div class="swiper popupSwiper">
 							<div class="swiper-wrapper">
@@ -171,7 +180,6 @@ html:root {
 							<div class="swiper-pagination"></div>
 						</div>
 					</div>
-				</div>
 				<div class="popup-foot">
 					<span class="pop-btn confirm" id="confirm">지금 보러 갈게요</span> <span
 						class="pop-btn close" id="close" style="color: gray;">괜찮아요.
@@ -179,6 +187,7 @@ html:root {
 				</div>
 			</div>
 		</div>
+		<div class="popup-background"></div>
 
 	<script type="text/javascript">
 		window.onload = function() {
