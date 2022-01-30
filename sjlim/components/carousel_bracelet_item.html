@@ -1,0 +1,149 @@
+<link rel="stylesheet"  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<style>
+/* common css */
+.ds-none { display: none; }
+
+/* base swiper css */
+.swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
+.swiper-area .swiper { width: 100%; height: 100%; }
+.swiper-area .swiper-slide { display: block; width: 100%; color: #fff;
+    /* Internet Explorer 10 */
+    /* display:-ms-flexbox; */
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    /* display:-moz-box; */
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    /* display:-webkit-box; */
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    /* display:box; */
+    box-pack:center;
+    box-align:center;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* swiper parallax-bg css */
+.swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+/* *** 아래 height 변경 50% -> 100% ***  */
+.swiper-area .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+.swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 20px; text-align: left; color: #fff; }
+.swiper-area .swiper-slide .title { font-size: 20px; font-weight: 400; text-align: left; padding-bottom: 8px; }
+.swiper-area .swiper-slide .subtitle { font-size: 16px; }
+.swiper-area .swiper-slide .text { font-size: 12px; max-width: 100%; line-height: 1.3; font-weight: lighter; }
+.swiper-area .swiper-slide .text p { max-width: 65%; padding-bottom: 10px; }
+.swiper-area .swiper-slide .link-img { color: #fff; float: right; padding: 0 25px 18px 0; text-decoration: revert; font-weight: lighter; font-size: 12px;}
+.categorySwiper .swiper-scrollbar { width: 70% !important; height: 3px !important; bottom: 25px !important; left: 25px !important; }
+.categorySwiper .swiper-scrollbar-drag { background-color: rgb(221 221 221); }
+
+
+/*--------------------------------------------------------------------*\
+상품목록 캐로셀
+\*--------------------------------------------------------------------*/
+/* base swiper css */
+.swiper-area { position: relative; height: 100%; margin: 0; padding: 0; }
+.swiper-area .swiper { width: 100%; height: 100%; }
+.swiper-area .swiper-slide { display: block; width: 100%; color: #000;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* swiper parallax-bg css */
+.swiper-area .parallax-bg { position: absolute; left: 0; top: 0; width: 130%; height: 100%; -webkit-background-size: cover; background-size: cover; background-position: center; }
+
+.swiper-area .swiper-slide img { width: 100%; height: 50%;}
+.swiper-area .swiper-slide .description { position: absolute; bottom: 0; left: 2%; text-align: left;}
+.swiper-area .swiper-slide .title { font-size: 41px; font-weight: 300; }
+.swiper-area .swiper-slide .subtitle { font-size: 21px; }
+.swiper-area .swiper-slide .text { font-size: 14px; max-width: 400px; line-height: 1.3; }
+
+.menuCategory img { width:60px; height: 60px; border-radius: 50%; -moz-border-radius: 50%; -khtml-border-radius: 50%; -webkit-border-radius: 50%;}
+.menuCategory a:hover img { border: 2px solid black; padding: 5%; }
+.menuCategory p { margin: 0; vertical-align: middle; position: relative; line-height: 3; }
+.menuCategory a:hover p { font-weight: bold; }
+</style>
+<!-- https://cdn.pixabay.com/photo/2016/08/15/10/14/wedding-1594957_960_720.jpg -->
+<div class="swiper-area">
+   <!-- Swiper -->
+    <div class="swiper categorySwiper" id="ct-1" 
+    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" >
+        <div class="parallax-bg" data-swiper-parallax="-23%"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://cdn.pixabay.com/photo/2016/08/15/10/14/wedding-1594957_960_720.jpg" alt="earing image" />
+                <div class="description">
+                    <div class="title" data-swiper-parallax="-300">제목 예시 입니다.</div>
+                    <div class="text" data-swiper-parallax="-100">
+                    <p>
+                        예시문구 입니다. 예시문구 입니다. 실제로 입력되는 
+                        문구와는 다를 수 있습니다. 참고 만 부탁드립니다.
+                        레인드랍 쥬얼리의 새로운 쥬얼리를 감상해보세요.
+                    </p>
+                    <a class="link-img" href="/product/list_thumb.html?cate_no=43">보러가기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://cdn.pixabay.com/photo/2016/08/15/10/14/wedding-1594957_960_720.jpg" alt="earing image" />
+                <div class="description">
+                    <div class="title" data-swiper-parallax="-300">제목 예시 입니다.</div>
+                    <div class="text" data-swiper-parallax="-100">
+                        <p>
+                        예시문구 입니다. 예시문구 입니다. 실제로 입력되는 
+                        문구와는 다를 수 있습니다. 참고 만 부탁드립니다.
+                        레인드랍 쥬얼리의 새로운 쥬얼리를 감상해보세요.
+                    </p>
+                        <a class="link-img" href="/product/list_thumb.html?cate_no=43">보러가기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://cdn.pixabay.com/photo/2016/08/15/10/14/wedding-1594957_960_720.jpg" alt="earing image" />
+                <div class="description">
+                    <div class="title" data-swiper-parallax="-300">제목 예시 입니다.</div>
+                    <div class="text" data-swiper-parallax="-100">
+                        <p>
+                        예시문구 입니다. 예시문구 입니다. 실제로 입력되는 
+                        문구와는 다를 수 있습니다. 참고 만 부탁드립니다.
+                        레인드랍 쥬얼리의 새로운 쥬얼리를 감상해보세요.
+                    </p>
+                        <a class="link-img" href="/product/list_thumb.html?cate_no=43">보러가기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+</div>
+
+<script>
+    // 상품목록 캐로셀
+    var swiper = new Swiper(".categorySwiper", {
+        // parallax
+        speed: 600,
+        parallax: true,
+        // 슬라이드 효과
+        effect: "fade",
+        // 자동 슬라이드 ( 시간 설정 : delay -> 3s ( 3000 ) )
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar"
+        }
+    });    
+</script>
