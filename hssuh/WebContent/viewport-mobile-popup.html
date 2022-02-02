@@ -7,7 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <link rel="stylesheet" href="resources/css/swiper.7.4.1.css" />
 <style type="text/css">
-.popup-background {
+.popup-background.show {
 	display: block;
     position: fixed;
     width: 100%;
@@ -204,20 +204,19 @@ html:root {
     		if(document.getQuerySelector('.swiper-text')) {
     			
     		}*/
-			//$(".popup-window").slideDown("1000"); 
-
-			// 현석오빠 이거 슬라이드 되는데 한번 확인 해봐바
-			/*
-			$(".popup-background").click(function() {
-				$(".open-popup").slideToggle();
-			});
-			*/
+    		
+    		var backdrop = document.querySelector(".popup-background");
+			backdrop.className = "popup-background show";
+    		backdrop.addEventListener('click', closePopupOutside);
 		}
 
 		function closePopup() {
-			//$(".popup-window").slideUp("1000");
-			$("#fp-nav").css("z-index", "100");
-			setCookie('use-popup', true, '1');
+			var backdrop = document.querySelector(".popup-background");
+			$(".open-popup").slideToggle(function(){
+				backdrop.className = "popup-background";
+				$("#fp-nav").css("z-index", "100");
+				setCookie('use-popup', true, '1');
+			});
 		}
 
 		function closePopupOutside(e) {
