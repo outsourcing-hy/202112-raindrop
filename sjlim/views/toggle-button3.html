@@ -9,10 +9,10 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </head>
 <style>
-    .container { margin: 0; padding: 0; background-color: bisque; width: 1280px; height: 720px; }
+    .container { margin: 0; padding: 0; background-color: bisque; width: 100%; height: 720px; }
 
-    .switch-button { width: 150px; height: 40px; display: inline-block; float: right; margin-right: 17px; margin-bottom: 35px;z-index: 100; background-color: black; line-height: 30px; font-weight: 600; }
-    .switch-button.on::after { content: "모델"; color: white; }
+    .switch-button { width: 150px; height: 40px; position: fixed; bottom: 0; right: 0; margin-right: 17px; margin-bottom: 35px;z-index: 100; background-color: black; line-height: 30px; font-weight: 600; }
+    .switch-button.on::after { content: "모델"; color: white; position: absolute; line-height: 40px; padding-left: 10px; }
     .switch-button:not(.on)::before { content: "제품"; color: white; padding-left: 25px; }
     .handle { width: 75px; height: 30px; background-color: white; display: inline-block; margin: 5px; }
     .switch-button .handle::before { content: "모델"; text-align: center; display: block; }
@@ -21,6 +21,18 @@
 </style>
 <body>
     <div class="container">
+        <ul>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+            <li><h1>####</h1></li>
+        </ul>
         <div id="switch" class="switch-button on br-36">
             <span class="handle br-36"></span>
         </div>
@@ -47,14 +59,13 @@
         console.log(parseInt(switchHandle.css('left')), (sizeSwitch / 2));
         if (parseInt(switchHandle.css('left')) < 0) {
             switchHandle.animate({
-            left: 0
+                left: 0
             }, "slow");
-
             switchArea.addClass("on");
         }
         else {
             switchHandle.animate({
-            left: 1
+                left: 1
             }, "slow");
             switchArea.removeClass("on");
         }
