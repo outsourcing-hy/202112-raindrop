@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+</head>
+<style>
+    .container { margin: 0; padding: 0; background-color: bisque; width: 1280px; height: 720px; }
+
+    .switch-button { width: 150px; height: 40px; display: inline-block; float: right; margin-right: 17px; margin-bottom: 35px;z-index: 100; background-color: black; line-height: 30px; font-weight: 600; }
+    .switch-button.on::after { content: "모델"; color: white; }
+    .switch-button:not(.on)::before { content: "제품"; color: white; padding-left: 25px; }
+    .handle { width: 75px; height: 30px; background-color: white; display: inline-block; margin: 5px; }
+    .switch-button .handle::before { content: "모델"; text-align: center; display: block; }
+    .switch-button.on .handle::before { content: "제품"; }
+    .br-36 { border-radius: 36px; }
+</style>
+<body>
+    <div class="container">
+        <div id="switch" class="switch-button on br-36">
+            <span class="handle br-36"></span>
+        </div>
+    </div>
+</body>
+<script>
+    let sizeSwitch = 1;
+    let switchHandle = $('#switch .handle');
+    let switchArea =  $('#switch');
+
+    switchHandle.draggable({
+        axis: 'x',
+        containment: 'parent',
+        stop: function() {
+            conditionMove();
+        }
+    });
+
+    switchArea.click(function() {
+        conditionMoveSnap();
+    });
+
+    function conditionMove() {
+        console.log(parseInt(switchHandle.css('left')), (sizeSwitch / 2));
+        if (parseInt(switchHandle.css('left')) < 0) {
+            switchHandle.animate({
+            left: 0
+            }, "slow");
+
+            switchArea.addClass("on");
+        }
+        else {
+            switchHandle.animate({
+            left: 1
+            }, "slow");
+            switchArea.removeClass("on");
+        }
+    }
+
+    function conditionMoveSnap() {
+        console.log(parseInt(switchHandle.css('left')), sizeSwitch);
+        if(parseInt(switchHandle.css('left')) == sizeSwitch) {
+            switchHandle.animate({
+                left: 0
+            }, 100);
+            switchArea.addClass("on");
+        }
+        else {
+            switchHandle.animate({
+                left: sizeSwitch + 'px'
+            }, 100);
+            switchArea.removeClass("on");
+        }
+    }
+</script>
+</html>
