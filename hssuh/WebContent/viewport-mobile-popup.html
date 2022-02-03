@@ -144,9 +144,7 @@ html:root {
 										<div class="swiper-title" data-swiper-parallax="-300">제목
 											예시입니다</div>
 										<div class="swiper-text" data-swiper-parallax="-100">
-											<p>
-												본문예시 입니다. 실제로는 다른 내용이 작성됩니다. 본문은 총 1줄에서 2줄 까지 작성됩니다. 본문은 총 1줄에서 2줄 까지 작성됩니다. 
-											</p>
+											<p>본문예시 입니다. 실제로는 다른 내용이 작성됩니다. 본문은 총 1줄에서 2줄 까지 작성됩니다. 본문은 총 1줄에서 2줄 까지 작성됩니다. </p>
 										</div>
 									</div>
 								</div>
@@ -168,9 +166,7 @@ html:root {
 										<div class="swiper-title" data-swiper-parallax="-300">제목
 											예시 3</div>
 										<div class="swiper-text" data-swiper-parallax="-100">
-											<p>
-												본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br /> 본문은 총 1줄에서 2줄 까지 작성됩니다.
-											</p>
+											<p>본문예시 입니다. 실제로는 다른 내용이 작성됩니다.<br /> 본문은 총 1줄에서 2줄 까지 작성됩니다.</p>
 										</div>
 									</div>
 								</div>
@@ -199,15 +195,19 @@ html:root {
     		}
     		
     		document.cookie = "visit="+visit;
-    		
-    		/* 70자 제한 로직 작성!
-    		if(document.getQuerySelector('.swiper-text')) {
     			
-    		}*/
-    		
     		var backdrop = document.querySelector(".popup-background");
 			backdrop.className = "popup-background show";
     		backdrop.addEventListener('click', closePopupOutside);
+    		
+    		// 70자 제한 로직 작성!
+    		var swiperTextNode = document.querySelector(".swiper-text>p");
+    		var swiperText = swiperTextNode.textContent;
+    		if(swiperText.length > 70) {
+    			console.log(swiperText);
+    			swiperTextNode.innerText = swiperText.substr(0, 70) + "...";
+    			swiperTextNode.insertAdjacentHTML("beforeend", "<a href='#'>더보기</a>");
+    		}
 		}
 
 		function closePopup() {
