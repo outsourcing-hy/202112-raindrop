@@ -199,15 +199,18 @@ html:root {
     		}
     		
     		document.cookie = "visit="+visit;
-    		
-    		/* 70자 제한 로직 작성!
-    		if(document.getQuerySelector('.swiper-text')) {
     			
-    		}*/
-    		
     		var backdrop = document.querySelector(".popup-background");
 			backdrop.className = "popup-background show";
     		backdrop.addEventListener('click', closePopupOutside);
+    		
+    		// 70자 제한 로직 작성!
+    		var swiperTextNode = document.querySelector(".swiper-text>p");
+    		var swiperText = swiperTextNode.textContent;
+    		if(swiperText.length > 70) {
+    			swiperTextNode.innerText = swiperText.substr(0, 70) + "...";
+    			swiperTextNode.insertAdjacentHTML("beforeend", "<a href='#'>더보기</a>");
+    		}
 		}
 
 		function closePopup() {
