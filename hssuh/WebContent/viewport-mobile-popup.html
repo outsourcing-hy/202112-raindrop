@@ -20,6 +20,7 @@
 }
 
 .open-popup {
+	display: none;
 	background: none rgb(255, 255, 255);
     margin-top: 0px;
     position: fixed;
@@ -33,26 +34,6 @@
     transition: transform 0.25s ease-in-out 0s;
     transform: translateY(0px);
 }
-
-.open-popup::before {
-    display: block;
-    width: 60px;
-    height: 4px;
-    border-radius: 2px;
-    background-color: rgb(209, 209, 209);
-    position: absolute;
-    left: 50%;
-    top: 15px;
-    transform: translateX(-50%);
-    content: "";
-}
-/*
-.popup hr {
-	width: 60px;
-	height: 4px;
-	background: rgb(209, 209, 209);
-	border-radius: 2px;
-}*/
 
 .popup {
 	padding: 50px 0px 10px;
@@ -185,6 +166,7 @@ html:root {
 
 	<script type="text/javascript">
 		window.onload = function() {
+			$(".open-popup").slideToggle("slow");
 			var visit = getCookie("visit");
     		if(!visit) {
     			visit = 1;
@@ -214,9 +196,9 @@ html:root {
 			var backdrop = document.querySelector(".popup-background");
 			$(".open-popup").slideToggle(function(){
 				backdrop.className = "popup-background";
-				$("#fp-nav").css("z-index", "100");
-				setCookie('use-popup', true, '1');
 			});
+			$("#fp-nav").css("z-index", "100");
+			//setCookie('use-popup', true, '1');
 		}
 
 		function closePopupOutside(e) {
@@ -241,6 +223,15 @@ html:root {
      			}
      		}
  		}
+		
+		 // 설정 일수만큼 현재시간에 만료값으로 지정 - 방문횟수로 변경해야함
+	 	function setCookie(cookie_name, value, days) {
+       	  var exdate = new Date();
+       	  exdate.setDate(exdate.getDate() + days);
+       	 
+       	  var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+       	  document.cookie = cookie_name + '=' + cookie_value;
+       	}
 		
 		document.querySelector("#close").addEventListener('click', closePopup);
 
