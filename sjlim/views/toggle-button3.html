@@ -51,12 +51,26 @@
         }
     });
 
-    switchArea.click(function() {
-        conditionMoveSnap();
+    $(".switch-button").click(function(e) {
+        let target = $(e.target);
+        if(target.hasClass("handle")) return;
+
+        if (target.hasClass("on")) {
+            switchHandle.animate({
+                left: sizeSwitch + 'px'
+            }, 100);
+            switchArea.removeClass("on");
+        }
+        else {
+            switchHandle.animate({
+                left: 0 
+            }, 100);
+            switchArea.addClass("on");
+        }
+
     });
 
     function conditionMove() {
-        console.log(parseInt(switchHandle.css('left')), (sizeSwitch / 2));
         if (parseInt(switchHandle.css('left')) < 0) {
             switchHandle.css("left", "0");
             switchArea.addClass("on");
@@ -67,21 +81,6 @@
         }
     }
 
-    function conditionMoveSnap() {
-        console.log(parseInt(switchHandle.css('left')), sizeSwitch);
-        if(parseInt(switchHandle.css('left')) == sizeSwitch) {
-            switchHandle.animate({
-                left: 0
-            }, 100);
-            switchArea.addClass("on");
-        }
-        else {
-            switchHandle.animate({
-                left: sizeSwitch + 'px'
-            }, 100);
-            switchArea.removeClass("on");
-        }
-    }
     function touchHandler(event)
     {
         var touches = event.changedTouches,
