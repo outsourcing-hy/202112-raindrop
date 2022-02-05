@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toggle Button</title>
+    <script src="https://code.jquery.com/jquery-1.4.4.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="../js/jquery-ui-1.13.1.min.js"></script>
 </head>
 <style>
     .container { margin: 0; padding: 0; background-color: bisque; width: 100%; height: 720px; }
@@ -51,40 +52,69 @@
         }
     });
 
-    switchArea.click(function() {
-        conditionMoveSnap();
-    });
+    $(".switch-button").click(function(e) {
+        let target = $(e.target);
+        if(target.hasClass("handle")) return;
 
-    function conditionMove() {
-        console.log(parseInt(switchHandle.css('left')), (sizeSwitch / 2));
-        if (parseInt(switchHandle.css('left')) < 0) {
-            switchHandle.animate({
-                left: 0
-            }, "slow");
-            switchArea.addClass("on");
-        }
-        else {
-            switchHandle.animate({
-                left: 1
-            }, "slow");
-            switchArea.removeClass("on");
-        }
-    }
-
-    function conditionMoveSnap() {
-        console.log(parseInt(switchHandle.css('left')), sizeSwitch);
-        if(parseInt(switchHandle.css('left')) == sizeSwitch) {
-            switchHandle.animate({
-                left: 0
-            }, 100);
-            switchArea.addClass("on");
-        }
-        else {
+        if (target.hasClass("on")) {
             switchHandle.animate({
                 left: sizeSwitch + 'px'
             }, 100);
             switchArea.removeClass("on");
         }
+        else {
+            switchHandle.animate({
+                left: 0 
+            }, 100);
+            switchArea.addClass("on");
+        }
+
+    });
+
+    function conditionMove() {
+        if (parseInt(switchHandle.css('left')) < 0) {
+            switchHandle.css("left", "0");
+            switchArea.addClass("on");
+        }
+        else {
+            switchHandle.css("left", "1px");
+            switchArea.removeClass("on");
+        }
     }
+
+    function touchHandler(event)
+    {
+        var touches = event.changedTouches,
+            first = touches[0],
+            type = "";
+        
+            switch(event.type)
+        {
+            case "touchstart": type = "mousedown"; break;
+            case "touchmove":  type="mousemove"; break;       
+            case "touchend":   type="mouseup"; break;
+            default: return;
+        }
+        var simulatedEvent = document.createEvent("MouseEvent");
+        simulatedEvent.initMouseEvent(type, true, true, window, 1,
+                                first.screenX, first.screenY,
+                                first.clientX, first.clientY, false,
+                                false, false, false, 0/*left*/, null);
+        
+        first.target.dispatchEvent(simulatedEvent);
+        // 오류 발생!
+        // event.preventDefault();
+    }
+    
+    function init()
+    {
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);   
+    }
+    $(function(){
+        init();
+    });
 </script>
 </html>
