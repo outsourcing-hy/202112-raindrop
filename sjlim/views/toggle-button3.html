@@ -58,15 +58,17 @@
     function conditionMove() {
         console.log(parseInt(switchHandle.css('left')), (sizeSwitch / 2));
         if (parseInt(switchHandle.css('left')) < 0) {
-            switchHandle.animate({
-                left: 0
-            }, "slow");
+            switchHandle.css("left", "0");
+            // switchHandle.animate({
+            //     left: 0
+            // }, "slow");
             switchArea.addClass("on");
         }
         else {
-            switchHandle.animate({
-                left: 1
-            }, "slow");
+            switchHandle.css("left", "1px");
+            // switchHandle.animate({
+            //     left: 1
+            // }, "slow");
             switchArea.removeClass("on");
         }
     }
