@@ -8,11 +8,6 @@
 	overflow: hidden;
 }
 
-.content {
-	height: 1000px;
-	background-color: #ccc;
-}
-
 .hide {
 	display: none;
 }
