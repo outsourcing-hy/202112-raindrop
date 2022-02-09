@@ -3,9 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=yes, width=device-width">
-<link rel="stylesheet" type="text/css" href="resources/css/seemore.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <style type="text/css">
+
+.btn_open_layout {
+	text-align:center;
+}
+
+.btn_open {
+	display: inline-block;
+	font-size: 15px;
+	line-height: 40px;
+	width: 90%;
+	border-radius: 15px;
+	border:1px solid lightgray;
+	text-align:center;
+}
+
+.showstep {
+	max-height: 300px;
+	overflow: hidden;
+}
+
 div.div_info_container {
     margin: 50px 20px;
     border-bottom: solid 1px #ccc;
@@ -96,21 +115,18 @@ span.span_add_info_content {
 </style>
 </head>
 <body>
-<div class="detailinfo showstep1">
+<div class="detailinfo showstep">
 	<div class="content">
-    <img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/animal-g0b5891afa_1920.jpg">
-	<br>
-		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/christmas-g58d923c6a_1920.jpg">
-	<br>
-		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/church-gd9e345dc0_1920.jpg">
-	<br>
-		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/fairy-lights-g5566ef2d6_1920.jpg">
-	<br>
+		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/animal-g0b5891afa_1920.jpg"><br>
+		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/christmas-g58d923c6a_1920.jpg"><br>
+		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/church-gd9e345dc0_1920.jpg"><br>
+		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/fairy-lights-g5566ef2d6_1920.jpg"><br>
 		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/man-g284d594ee_1920.jpg">	
 	</div>
 </div>
-<a href="#" class="btn_open">더보기</a>
-<a href="#" class="btn_close hide">감추기</a>
+<div class="btn_open_layout">
+	<span class="btn_open">상품설명 더보기</span>
+</div>
 <div class="div_info_container">
     <div>
         <div id="infoBasic_title" class="div_info_title">
@@ -328,41 +344,11 @@ span.span_add_info_content {
     </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function(){ //DOM 생성 후 이벤트 리스너 등록
-    //더보기 버튼 이벤트 리스너
+document.addEventListener('DOMContentLoaded', function(){
     document.querySelector('.btn_open').addEventListener('click', function(e){
-        
-        let classList = document.querySelector('.detailinfo').classList; // 더보기 프레임의 클래스 정보 얻기
-        let contentHeight = document.querySelector('.detailinfo > .content').offsetHeight; //컨텐츠 높이 얻기
-
-        // 2단계이면 전체보기로
-        if(classList.contains('showstep2')){
-            classList.remove('showstep2');
-        }
-        // 1단계이면 2단계로
-        if(classList.contains('showstep1')){
-            classList.remove('showstep1');
-            if(contentHeight > 600){
-                classList.add('showstep2');
-            }else{
-                document.querySelector('.btn_open').classList.add('hide');
-            }
-        }
-        //전체보기시 더보기 버튼 감추기 & 감추기 버튼 표시
-        if(!classList.contains('showstep1') && !classList.contains('showstep2')){
-            e.target.classList.add('hide');
-            document.querySelector('.btn_close').classList.remove('hide');
-            
-        }
-        
+        document.querySelector('.detailinfo').classList.remove('showstep');
+        document.querySelector('.btn_open').style.display="none";
     });
-});
-
-//감추기 버튼 이벤트 리스너
-document.querySelector('.btn_close').addEventListener('click', function(e){
-    e.target.classList.add('hide');
-    document.querySelector('.btn_open').classList.remove('hide'); // 더보기 버튼 감춤
-    document.querySelector('.detailinfo').classList.add('showstep1'); // 초기 감춤 상태로 복귀
 });
 
 //컨텐츠 로딩 완료 후 높이 기준으로 클래스 재처리
@@ -370,8 +356,8 @@ window.addEventListener('load', function(){
     let contentHeight = document.querySelector('.detailinfo > .content').offsetHeight; //컨텐츠 높이 얻기
     console.log(contentHeight);
     if(contentHeight <= 300){
-        document.querySelector('.detailinfo').classList.remove('showstep1'); // 초기값보다 작으면 전체 컨텐츠 표시
-        document.querySelector('.btn_open').classList.add('hide'); // 버튼 감춤
+        document.querySelector('.detailinfo').classList.remove('showstep'); // 초기값보다 작으면 전체 컨텐츠 표시
+        document.querySelector('.btn_open').style.display="none"; // 버튼 감춤
     }
 });
 </script>
