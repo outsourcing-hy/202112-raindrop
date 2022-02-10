@@ -6,18 +6,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <style type="text/css">
 
+/*더보기 버튼*/
 .btn_open_layout {
 	text-align:center;
 }
 
 .btn_open {
+	margin-top:5px;
 	display: inline-block;
 	font-size: 15px;
 	line-height: 40px;
 	width: 90%;
 	border-radius: 15px;
-	border:1px solid lightgray;
+	border:2px solid lightgray;
 	text-align:center;
+}
+
+.blurEffect {
+	position:absolute;
+	top:269px;
+	z-index:1;
+	width: 100%;
+	height:40px;
+	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
 .showstep {
@@ -26,7 +37,7 @@
 }
 
 div.div_info_container {
-    margin: 50px 20px;
+    margin: 20px 20px;
     border-bottom: solid 1px #ccc;
 }
 
@@ -124,8 +135,13 @@ span.span_add_info_content {
 		<img style="display: block; float: none; vertical-align: top; margin: 0px auto; text-align: center; width:100%;" src="resources/img/man-g284d594ee_1920.jpg">	
 	</div>
 </div>
-<div class="btn_open_layout">
-	<span class="btn_open">상품설명 더보기</span>
+<div class="btn_open_layout arrow_down">
+	<div class="blurEffect"></div>
+	<span class="btn_open">상품설명 더보기
+		<div class="div_info_arrow_wrap">
+	        <div id="infoBasic_arrow" class="store_detail_arrow arrow_down"></div>
+	    </div>
+	</span>
 </div>
 <div class="div_info_container">
     <div>
